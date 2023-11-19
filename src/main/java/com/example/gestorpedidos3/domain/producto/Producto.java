@@ -1,14 +1,13 @@
-package com.example.gestorpedidoshibernate.domain.producto;
+package com.example.gestorpedidos3.domain.producto;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 @Data
 @Entity
-@Table(name="producto")
+@Table(name = "producto")
 public class Producto implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

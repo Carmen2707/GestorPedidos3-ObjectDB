@@ -1,4 +1,4 @@
-package com.example.gestorpedidoshibernate;
+package com.example.gestorpedidos3;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +21,8 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void changeScene( String fxml,String title ) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("/views/"+fxml));
+    public static void changeScene(String fxml, String title) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/" + fxml));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         stage.setTitle(title);
         stage.setScene(scene);

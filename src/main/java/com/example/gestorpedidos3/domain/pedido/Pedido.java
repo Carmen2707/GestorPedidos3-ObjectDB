@@ -1,20 +1,18 @@
-package com.example.gestorpedidoshibernate.domain.pedido;
+package com.example.gestorpedidos3.domain.pedido;
 
 
-import com.example.gestorpedidoshibernate.domain.usuario.Usuario;
+import com.example.gestorpedidos3.domain.item.Item;
+import com.example.gestorpedidos3.domain.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name="pedido")
+@Table(name = "pedido")
 public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +20,7 @@ public class Pedido implements Serializable {
     @Column(name = "código")
     private String código;
     @Column(name = "fecha")
-    private Date fecha;
+    private String fecha;
     //@Column(name = "usuario")
     //private int usuario;
 
@@ -30,8 +28,24 @@ public class Pedido implements Serializable {
     @JoinColumn(name = "usuario", referencedColumnName = "id")
     private Usuario usuario;
 
- /*   @OneToMany(mappedBy = "código", fetch = FetchType.EAGER)
-    private List<Item> items = new ArrayList<>(0);*/
+   @OneToMany(mappedBy = "codigo", fetch = FetchType.EAGER)
+    private List<Item> items = new ArrayList<>();
+
     @Column(name = "total")
     private int total;
+
+
+    public Pedido() {
+    }
+
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", código='" + código + '\'' +
+                ", fecha=" + fecha +
+            //   ", usuario=" + usuario +
+                ", total=" + total +
+                '}';
+    }
 }

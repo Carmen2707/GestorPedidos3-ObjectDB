@@ -1,6 +1,7 @@
-package com.example.gestorpedidoshibernate.domain.producto;
+package com.example.gestorpedidos3.domain.producto;
 
-import com.example.gestorpedidoshibernate.domain.DAO;
+
+import com.example.gestorpedidos3.domain.DAO;
 
 import java.util.ArrayList;
 

@@ -1,18 +1,17 @@
-package com.example.gestorpedidoshibernate.domain.usuario;
+package com.example.gestorpedidos3.domain.usuario;
 
-import com.example.gestorpedidoshibernate.domain.DAO;
-import com.example.gestorpedidoshibernate.domain.HibernateUtil;
 
+import com.example.gestorpedidos3.domain.DAO;
+import com.example.gestorpedidos3.domain.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-
 
 import java.util.ArrayList;
 
 public class UsuarioDAO implements DAO<Usuario> {
     public Usuario validateUser(String nombre, String contraseña) {
         Usuario result = null;
-        try( Session session = HibernateUtil.getSessionFactory().openSession()){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<Usuario> query = session.createQuery("from Usuario where nombre=:u and contraseña=:p", Usuario.class);
             query.setParameter("u", nombre);
             query.setParameter("p", contraseña);
@@ -22,7 +21,8 @@ public class UsuarioDAO implements DAO<Usuario> {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-        };
+        }
+
 
         return result;
     }
@@ -31,8 +31,8 @@ public class UsuarioDAO implements DAO<Usuario> {
     public ArrayList<Usuario> getAll() {
         var salida = new ArrayList<Usuario>(0);
 
-        try(Session s = HibernateUtil.getSessionFactory().openSession()){
-            Query<Usuario> q = s.createQuery("from Usuario",Usuario.class);
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
+            Query<Usuario> q = s.createQuery("from Usuario", Usuario.class);
             salida = (ArrayList<Usuario>) q.getResultList();
         }
 
@@ -43,7 +43,7 @@ public class UsuarioDAO implements DAO<Usuario> {
     public Usuario get(Long id) {
         var salida = new Usuario();
 
-        try(Session s = HibernateUtil.getSessionFactory().openSession()){
+        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
             salida = s.get(Usuario.class, id);
         }
         return salida;

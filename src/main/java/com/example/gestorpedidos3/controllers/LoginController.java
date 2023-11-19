@@ -1,10 +1,10 @@
-package com.example.gestorpedidoshibernate.controllers;
+package com.example.gestorpedidos3.controllers;
 
 
-import com.example.gestorpedidoshibernate.App;
-import com.example.gestorpedidoshibernate.Session;
-import com.example.gestorpedidoshibernate.domain.usuario.Usuario;
-import com.example.gestorpedidoshibernate.domain.usuario.UsuarioDAO;
+import com.example.gestorpedidos3.App;
+import com.example.gestorpedidos3.Session;
+import com.example.gestorpedidos3.domain.usuario.Usuario;
+import com.example.gestorpedidos3.domain.usuario.UsuarioDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -44,16 +44,13 @@ public class LoginController implements Initializable {
             Usuario u = (new UsuarioDAO()).validateUser(nombre, contraseña);
 
             if (u == null) {
-                info.setText("Usuario no encontrado");
+                info.setText("Usuario o contraseña incorrecto");
 
             } else {
-                info.setText("Usuario " + nombre + "(" + contraseña + ") correcto");
-
-
+                info.setText("Usuario correcto. ¡Bienvenid@ " + nombre + " !");
                 Session.setCurrentUser(u);
 
                 /* Guardar usuario en sesión e ir a la proxima ventana */
-
                 try {
                     App.changeScene("main-view.fxml", "Ventana de pedidos");
                 } catch (IOException e) {

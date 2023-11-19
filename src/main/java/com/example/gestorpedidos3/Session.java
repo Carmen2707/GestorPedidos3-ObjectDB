@@ -1,24 +1,25 @@
-package com.example.gestorpedidoshibernate;
+package com.example.gestorpedidos3;
 
 
-import com.example.gestorpedidoshibernate.domain.pedido.Pedido;
-
-import com.example.gestorpedidoshibernate.domain.usuario.Usuario;
+import com.example.gestorpedidos3.domain.item.Item;
+import com.example.gestorpedidos3.domain.pedido.Pedido;
+import com.example.gestorpedidos3.domain.producto.Producto;
+import com.example.gestorpedidos3.domain.usuario.Usuario;
 import lombok.Getter;
 import lombok.Setter;
 
 public class Session {
-   /* @Getter
+    @Getter
     @Setter
-    //private static Item currentItem;*/
+    private static Item currentItem;
 
     @Getter
     @Setter
     private static Pedido currentPedido;
 
-  /*  @Getter
+    @Getter
     @Setter
-  //  private static Producto currentProducto;*/
+    private static Producto currentProducto;
 
     @Getter
     @Setter

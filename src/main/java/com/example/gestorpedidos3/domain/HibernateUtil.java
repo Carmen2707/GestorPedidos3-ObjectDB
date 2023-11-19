@@ -1,4 +1,4 @@
-package com.example.gestorpedidoshibernate.domain;
+package com.example.gestorpedidos3.domain;
 
 import lombok.extern.java.Log;
 import org.hibernate.SessionFactory;
@@ -10,18 +10,18 @@ public class HibernateUtil {
 
     private static SessionFactory sf = null;
 
-    static{
+    static {
         try {
             org.hibernate.cfg.Configuration cfg = new Configuration();
             cfg.configure();
             sf = cfg.buildSessionFactory();
             log.info("SessionFactory creada con exito!");
-        } catch(Exception ex){
+        } catch (Exception ex) {
             log.severe("Error al crear SessionFactory()");
         }
     }
 
-    public static SessionFactory getSessionFactory(){
+    public static SessionFactory getSessionFactory() {
         return sf;
     }
 }

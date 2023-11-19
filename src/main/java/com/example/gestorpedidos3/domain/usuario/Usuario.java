@@ -1,17 +1,16 @@
-package com.example.gestorpedidoshibernate.domain.usuario;
+package com.example.gestorpedidos3.domain.usuario;
 
-import com.example.gestorpedidoshibernate.domain.pedido.Pedido;
+
+import com.example.gestorpedidos3.domain.pedido.Pedido;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name="usuarios")
+@Table(name = "usuarios")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +23,21 @@ public class Usuario {
     private String email;
     @Transient
     private Long pedidosQuantity;
-    @OneToMany(mappedBy = "usuarios", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Pedido> pedidos = new ArrayList<>(0);
+
+    public Usuario() {
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", contraseña='" + contraseña + '\'' +
+                ", email='" + email + '\'' +
+               //   ", pedidosQuantity=" + pedidosQuantity +
+               //  ", pedidos=" + pedidos +
+                '}';
+    }
 }
