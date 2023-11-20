@@ -3,9 +3,8 @@ package com.example.gestorpedidos3.domain.pedido;
 
 import com.example.gestorpedidos3.domain.DAO;
 import com.example.gestorpedidos3.domain.HibernateUtil;
-import com.example.gestorpedidos3.domain.item.Item;
-import com.example.gestorpedidos3.domain.usuario.Usuario;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
@@ -35,9 +34,36 @@ public class PedidoDAO implements DAO<Pedido> {
 
     @Override
     public Pedido save(Pedido data) {
-        return null;
-    }
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Transaction transaction = null;
 
+            try {
+                transaction = session.beginTransaction();
+                session.save(data);
+                transaction.commit();
+            } catch (Exception e) {
+                if (transaction != null) {
+                    transaction.rollback();
+                }
+                e.printStackTrace();
+                throw new RuntimeException("Error al guardar el pedido: " + e.getMessage(), e);
+            }
+
+            return data;
+        }
+       }
+
+
+@Override
+public String getUltimoCodigo(){
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Query<String> query = session.createQuery("select max(p.código) from Pedido p", String.class);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error al obtener el último código", e);
+        }
+    }
     @Override
     public void update(Pedido data) {
 

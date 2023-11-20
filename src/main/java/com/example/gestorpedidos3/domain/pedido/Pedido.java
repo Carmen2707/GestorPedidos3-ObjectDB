@@ -32,7 +32,7 @@ public class Pedido implements Serializable {
     private List<Item> items = new ArrayList<>();
 
     @Column(name = "total")
-    private int total;
+    private Double total;
 
 
     public Pedido() {

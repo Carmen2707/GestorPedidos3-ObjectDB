@@ -2,7 +2,9 @@ package com.example.gestorpedidos3.controllers;
 
 import com.example.gestorpedidos3.App;
 import com.example.gestorpedidos3.Session;
+import com.example.gestorpedidos3.domain.item.Item;
 import com.example.gestorpedidos3.domain.pedido.Pedido;
+import com.example.gestorpedidos3.domain.pedido.PedidoDAO;
 import com.example.gestorpedidos3.domain.usuario.Usuario;
 import com.example.gestorpedidos3.domain.usuario.UsuarioDAO;
 import javafx.beans.property.SimpleStringProperty;
@@ -15,6 +17,8 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainViewController implements Initializable {
@@ -108,13 +112,44 @@ public class MainViewController implements Initializable {
 
         //Actualizo el usuario desde la bbdd
         Session.setCurrentUser((new UsuarioDAO()).get(Session.getCurrentUser().getId()));
-        tabla.getItems().addAll(Session.getCurrentUser().getPedidos());
+        tabla.getItems().addAll(Session.getCurrentUser ().getPedidos());
 
 
     }
 
     @javafx.fxml.FXML
     public void agregarPedido(ActionEvent actionEvent) {
+        Pedido pedidoNuevo = new Pedido();
+        //añadimos la fecha de hoy al pedido
+        pedidoNuevo.setFecha(LocalDate.now()+"");
 
+
+        PedidoDAO pedidoDAO = new PedidoDAO();
+        String ultimoCodigo = pedidoDAO.getUltimoCodigo();
+        int ultimoNum = Integer.parseInt(ultimoCodigo.substring(4));
+        int nuevoNum = ultimoNum + 1;
+        String nuevoCodigo = "PED-" + String.format("%03d", nuevoNum);
+        //añadimos su codigo de pedido incrementado
+        pedidoNuevo.setCódigo(nuevoCodigo);
+        //añadimos el usuario que ha creado ese pedido
+        pedidoNuevo.setUsuario(Session.getCurrentUser());
+        //añadimos el total a la tabla
+        Double total = calcularTotalPedido(pedidoNuevo.getItems());
+        pedidoNuevo.setTotal(total );
+        //+ "€"
+        tabla.getItems().add(pedidoNuevo);
+        //guardamos el pedido en la base de datos
+        Session.setCurrentPedido((new PedidoDAO()).save(pedidoNuevo));
+    }
+
+
+    private double calcularTotalPedido(List<Item> items) {
+        double totalPedido = 0.0;
+        for (Item item : items) {
+            int cantidad = item.getCantidad();
+            double precio = Double.parseDouble(item.getProducto().getPrecio());
+            totalPedido += cantidad * precio;
+        }
+        return totalPedido;
     }
 }

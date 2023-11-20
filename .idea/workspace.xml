@@ -4,43 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c604b6e-0047-4621-86df-d1df24153038" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/Session.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/ItemsViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/HibernateUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/ItemDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/Producto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/ProductoDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/escritorio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/flecha-izquierda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/i.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/mas.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/stacked-waves-haikei.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/edit-pedido.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/items-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/login-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/main-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+    <list default="true" id="2c604b6e-0047-4621-86df-d1df24153038" name="Changes" comment="h">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/edit-pedido.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/edit-pedido.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +23,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,7 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/karme/IdeaProjects/GestorPedidos3/src/main/java/com/example/gestorpedidos3/domain",
+    "last_opened_file_path": "C:/Users/karme/IdeaProjects/GestorPedidos3",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -127,10 +100,27 @@
       <workItem from="1700337927481" duration="43000" />
       <workItem from="1700400663726" duration="243000" />
       <workItem from="1700400931057" duration="18656000" />
+      <workItem from="1700424095442" duration="194000" />
+      <workItem from="1700495600822" duration="703000" />
+      <workItem from="1700498025804" duration="1833000" />
+      <workItem from="1700507704094" duration="4898000" />
     </task>
+    <task id="LOCAL-00001" summary="h">
+      <option name="closed" value="true" />
+      <created>1700424192000</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1700424192000</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="h" />
+    <option name="LAST_COMMIT_MESSAGE" value="h" />
   </component>
 </project>
