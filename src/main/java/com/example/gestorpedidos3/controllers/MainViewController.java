@@ -42,6 +42,12 @@ public class MainViewController implements Initializable {
     private Button logout;
     @javafx.fxml.FXML
     private Button btnAgregar;
+    @javafx.fxml.FXML
+    private Button btnB;
+    @javafx.fxml.FXML
+    private Button btnVer;
+    @javafx.fxml.FXML
+    private Button btnEditar;
 
     @javafx.fxml.FXML
     public void click(Event event) {
@@ -93,22 +99,6 @@ public class MainViewController implements Initializable {
         });
 
 
-        tabla.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Pedido>() {
-            @Override
-            public void changed(ObservableValue<? extends Pedido> observableValue, Pedido pedido, Pedido t1) {
-                if (t1 != null){
-                    Pedido pedido1=tabla.getSelectionModel().getSelectedItem();
-                    Session.setCurrentPedido(pedido1);
-                    try {
-                        App.changeScene("items-view.fxml", "Detalles del pedido");
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-
-
-            }
-        });
 
         //Actualizo el usuario desde la bbdd
         Session.setCurrentUser((new UsuarioDAO()).get(Session.getCurrentUser().getId()));
@@ -125,6 +115,14 @@ public class MainViewController implements Initializable {
 
 
         PedidoDAO pedidoDAO = new PedidoDAO();
+
+
+        Long ultimoID = pedidoDAO.getUltimoID();
+
+        Long nuevoID = ultimoID + 1;
+        pedidoNuevo.setId(nuevoID);
+
+
         String ultimoCodigo = pedidoDAO.getUltimoCodigo();
         int ultimoNum = Integer.parseInt(ultimoCodigo.substring(4));
         int nuevoNum = ultimoNum + 1;
@@ -135,8 +133,8 @@ public class MainViewController implements Initializable {
         pedidoNuevo.setUsuario(Session.getCurrentUser());
         //añadimos el total a la tabla
         Double total = calcularTotalPedido(pedidoNuevo.getItems());
-        pedidoNuevo.setTotal(total );
-        //+ "€"
+        pedidoNuevo.setTotal(total);
+
         tabla.getItems().add(pedidoNuevo);
         //guardamos el pedido en la base de datos
         Session.setCurrentPedido((new PedidoDAO()).save(pedidoNuevo));
@@ -151,5 +149,61 @@ public class MainViewController implements Initializable {
             totalPedido += cantidad * precio;
         }
         return totalPedido;
+    }
+
+    @javafx.fxml.FXML
+    public void borrarPedido(ActionEvent actionEvent) {
+
+            // Obtener el pedido seleccionado
+            Pedido pedidoSeleccionado = tabla.getSelectionModel().getSelectedItem();
+
+            if (pedidoSeleccionado != null) {
+                // Eliminar de la tabla
+                tabla.getItems().remove(pedidoSeleccionado);
+
+                // Eliminar de la base de datos si es necesario
+                PedidoDAO pedidoDAO = new PedidoDAO();
+                pedidoDAO.delete(pedidoSeleccionado);
+            } else {
+                // Manejar si no se ha seleccionado ningún pedido para borrar
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("No se ha seleccionado ningun pedido.");
+                alert.setContentText("Selecciona sobre un pedido para borrarlo.");
+                alert.showAndWait();
+            }
+        }
+
+    @javafx.fxml.FXML
+    public void verDetalles(ActionEvent actionEvent) {
+        Pedido pedidoSeleccionado = tabla.getSelectionModel().getSelectedItem();
+        if (pedidoSeleccionado != null) {
+            try {
+                App.changeScene("items-view.fxml", "Detalles del pedido");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+
+    @javafx.fxml.FXML
+    public void editarPedido(ActionEvent actionEvent) {
+        tabla.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Pedido>() {
+            @Override
+            public void changed(ObservableValue<? extends Pedido> observableValue, Pedido pedido, Pedido t1) {
+                if (t1 != null){
+                    Pedido pedido1=tabla.getSelectionModel().getSelectedItem();
+                    Session.setCurrentPedido(pedido1);
+                    try {
+                        App.changeScene("edit-pedido.fxml", "Detalles del pedido");
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
+
+            }
+        });
     }
 }

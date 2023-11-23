@@ -95,7 +95,7 @@ public class ItemsViewController implements Initializable {
 
 
         //Actualizo el usuario desde la bbdd
-        Session.setCurrentPedido((new PedidoDAO()).get(Session.getCurrentPedido().getId()));
+        //Session.setCurrentPedido((new PedidoDAO()).get(Session.getCurrentPedido().getId()));
         tablaItems.getItems().addAll(Session.getCurrentPedido().getItems());
         System.out.println(Session.getCurrentPedido().getItems());
     }

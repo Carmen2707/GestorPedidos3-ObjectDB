@@ -9,8 +9,6 @@ public interface DAO<T> {
 
     public T save(T data);
 
-    String getUltimoCodigo();
-
     public void update(T data);
 
     public void delete(T data);

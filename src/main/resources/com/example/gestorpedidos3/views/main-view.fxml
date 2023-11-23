@@ -79,21 +79,57 @@
                         <Insets />
                     </FlowPane.margin>
                 </Button>
-                <Button fx:id="btnAgregar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#agregarPedido" styleClass="buttonLogout" text="AGREGAR PEDIDO">
+            <Button fx:id="btnVer" mnemonicParsing="false" onAction="#verDetalles" styleClass="buttonPequeno" stylesheets="@style.css" text="VER DETALLES">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/boton-para-acercar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="150.0" right="10.0" top="10.0" />
+               </FlowPane.margin>
+            </Button>
+                <Button fx:id="btnAgregar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#agregarPedido" styleClass="buttonPequeno" stylesheets="@style.css" text="AGREGAR PEDIDO">
                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../img/mas.png" />
                             </image>
                         </ImageView>
                     </graphic>
                     <FlowPane.margin>
-                        <Insets left="300.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </FlowPane.margin>
                 </Button>
+            <Button fx:id="btnB" mnemonicParsing="false" onAction="#borrarPedido" styleClass="buttonPequeno" stylesheets="@style.css" text="BORRAR">
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </FlowPane.margin>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/borrar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editarPedido" styleClass="buttonPequeno" stylesheets="@style.css" text="EDITAR">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/lapiz.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </FlowPane.margin>
+            </Button>
                 <Button fx:id="logout" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#logout" styleClass="buttonLogout" stylesheets="@style.css" text="LOGOUT">
                     <FlowPane.margin>
-                        <Insets left="300.0" />
+                        <Insets left="95.0" />
                     </FlowPane.margin>
                 </Button>
             </children>

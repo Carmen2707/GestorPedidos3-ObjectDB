@@ -9,7 +9,20 @@
     -fx-background-image: url("../img/stacked-waves-haikei.png");
     -fx-background-size: 100%;
 }
+.buttonPequeno{
+    -fx-background-color: blue;
+    -fx-text-fill: white;
+    -fx-padding: 5px 10px;
 
+    -fx-background-radius: 50px;
+}
+.buttonPequeno:hover{
+    -fx-background-color: #8e8eff;
+    -fx-text-fill: white;
+    -fx-padding: 5px 10px;
+
+    -fx-background-radius: 50px;
+}
 .buttonLogout {
     -fx-background-color: blue;
     -fx-text-fill: white;

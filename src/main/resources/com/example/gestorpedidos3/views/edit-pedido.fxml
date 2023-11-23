@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -17,143 +16,130 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="ventana2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestorpedidos3.controllers.EditPedidoController">
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <BorderPane>
-               <center>
-                  <TableView prefHeight="200.0" prefWidth="200.0" styleClass="tabla" stylesheets="@style.css" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Código" />
-                        <TableColumn prefWidth="75.0" text="Fecha" />
-                        <TableColumn prefWidth="75.0" text="Cantidad" />
-                      <TableColumn prefWidth="75.0" text="Total" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-               </center>
-               <right>
-                  <VBox BorderPane.alignment="CENTER">
+            <TableView fx:id="tablaEditItem" prefHeight="200.0" prefWidth="200.0" styleClass="tabla" stylesheets="@style.css">
+              <columns>
+                <TableColumn fx:id="cProducto" prefWidth="75.0" text="Producto" />
+                <TableColumn fx:id="cCantidad" prefWidth="75.0" text="Cantidad" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label alignment="BOTTOM_LEFT" text="Producto" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboProducto" prefHeight="30.0" prefWidth="326.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <Label text="Cantidad" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="spinnerCantidad" prefHeight="30.0" prefWidth="326.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Spinner>
+                  <FlowPane alignment="CENTER">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
                      <children>
-                        <TextField fx:id="txtCodigo" editable="false" text="código">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </TextField>
-                        <Button mnemonicParsing="false" text="Button">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
+                        <Button fx:id="btnAñadir" mnemonicParsing="false" onAction="#añadirItem" styleClass="buttonPequeno" stylesheets="@style.css" text="AÑADIR">
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </FlowPane.margin>
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/mas.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" text="Button">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button mnemonicParsing="false" text="Button">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
+                        <Button fx:id="btnBorrar" mnemonicParsing="false" onAction="#borrarItem" styleClass="buttonPequeno" stylesheets="@style.css" text="BORRAR">
+                           <FlowPane.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </FlowPane.margin>
+                           <graphic>
+                              <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/borrar.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
                         </Button>
                      </children>
-                     <BorderPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </BorderPane.margin>
-                  </VBox>
-               </right>
+                  </FlowPane>
+               </children>
                <VBox.margin>
                   <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                </VBox.margin>
-            </BorderPane>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <TableView prefHeight="200.0" prefWidth="200.0" styleClass="tabla" stylesheets="@style.css" BorderPane.alignment="CENTER">
-                    <columns>
-                      <TableColumn prefWidth="75.0" text="Producto" />
-                      <TableColumn prefWidth="75.0" text="Cantidad" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-               </center>
-               <right>
-                  <VBox BorderPane.alignment="CENTER">
-                     <children>
-                        <Label fx:id="lblCodigo" text="Codigo" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Label fx:id="lblTotal" text="Total" textFill="WHITE">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Label>
-                        <ComboBox fx:id="comboProducto" prefHeight="26.0" prefWidth="149.0">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </ComboBox>
-                        <Spinner fx:id="spinnerCantidad">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Spinner>
-                        <Button fx:id="btnAñadir" mnemonicParsing="false" text="Añadir">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                        <Button fx:id="btnBorrar" mnemonicParsing="false" text="Borrar">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </VBox.margin>
-                        </Button>
-                     </children>
-                     <BorderPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                     </BorderPane.margin>
-                  </VBox>
-               </right>
-               <VBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </VBox.margin>
-            </BorderPane>
+            </VBox>
          </children>
       </VBox>
    </center>
-   <bottom>
-      <FlowPane alignment="CENTER" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" text="GUARDAR" />
-            <Button mnemonicParsing="false" text="ELIMINAR" />
-            <Button defaultButton="true" mnemonicParsing="false" text="CANCELAR" />
-         </children>
-      </FlowPane>
-   </bottom>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
    <top>
       <FlowPane BorderPane.alignment="CENTER">
          <children>
+            <VBox>
+               <children>
+                  <Label text="Aquí puedes editar tu pedido" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblTituloPedidoNum" text="Pedido numero x" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
             <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../img/escritorio.png" />
                </image>
                <FlowPane.margin>
-                  <Insets left="700.0" />
+                  <Insets left="600.0" />
                </FlowPane.margin>
             </ImageView>
          </children>
       </FlowPane>
    </top>
+   <bottom>
+      <FlowPane alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardarPedido" styleClass="buttonLogout" stylesheets="@style.css" text="GUARDAR">
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </FlowPane.margin>
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/guardar-el-archivo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" styleClass="buttonLogout" stylesheets="@style.css" text="CANCELAR">
+               <FlowPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </FlowPane.margin>
+            </Button>
+         </children>
+      </FlowPane>
+   </bottom>
 </BorderPane>

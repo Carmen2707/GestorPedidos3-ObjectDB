@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c604b6e-0047-4621-86df-d1df24153038" name="Changes" comment="h">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/borrar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/boton-para-acercar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/guardar-el-archivo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/lapiz.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/ItemsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/ItemsViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/ItemDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/ProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/ProductoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/edit-pedido.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/edit-pedido.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/karme/IdeaProjects/GestorPedidos3",
+    "last_opened_file_path": "C:/Users/karme/IdeaProjects/GestorJuegos",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -103,7 +111,9 @@
       <workItem from="1700424095442" duration="194000" />
       <workItem from="1700495600822" duration="703000" />
       <workItem from="1700498025804" duration="1833000" />
-      <workItem from="1700507704094" duration="4898000" />
+      <workItem from="1700507704094" duration="4928000" />
+      <workItem from="1700671721704" duration="2797000" />
+      <workItem from="1700758135426" duration="11661000" />
     </task>
     <task id="LOCAL-00001" summary="h">
       <option name="closed" value="true" />
@@ -113,7 +123,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700424192000</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="h">
+      <option name="closed" value="true" />
+      <created>1700513381886</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700513381886</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
