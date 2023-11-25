@@ -72,11 +72,15 @@ public class PedidoDAO implements DAO<Pedido> {
         }
     }
 
+    /**
+     * @param items items es la lista donde están todos los items del pedido.
+     * @return este método calcularTotalPedido devuelve el coste total del pedido ya que ha sumado el precio de todos los items.
+     */
     public double calcularTotalPedido(List<Item> items) {
         double totalPedido = 0.0;
         for (Item item : items) {
             String precioConEuro = item.getProducto().getPrecio();
-            String precioSinEuro = precioConEuro.replace("€", "").trim();
+            String precioSinEuro = precioConEuro.replace("€", "");
             double precio = Double.parseDouble(precioSinEuro);
             totalPedido += item.getCantidad() * precio;
         }
@@ -112,16 +116,6 @@ public class PedidoDAO implements DAO<Pedido> {
                 e.printStackTrace();
                 throw new RuntimeException("Error al borrar el pedido: " + e.getMessage(), e);
             }
-        }
-    }
-
-    public Long getUltimoID() {
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Long> query = session.createQuery("select max(p.id) from Pedido p", Long.class);
-            return query.uniqueResult();
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Error al obtener el último id", e);
         }
     }
 }

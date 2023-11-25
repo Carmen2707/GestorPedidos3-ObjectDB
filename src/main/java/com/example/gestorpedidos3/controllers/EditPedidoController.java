@@ -20,7 +20,14 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+/**
+ * La clase EditPedidoController es el controllador para editar los pedidos.
+ */
 public class EditPedidoController implements Initializable {
+
+    /**
+     * Declaración de elementos para la interfaz.
+     */
     @javafx.fxml.FXML
     private ComboBox<Producto> comboProducto;
     @javafx.fxml.FXML
@@ -44,10 +51,15 @@ public class EditPedidoController implements Initializable {
     @javafx.fxml.FXML
     private ImageView infoEdit;
 
+    /**
+     * El método initialize inicia la ventana.
+     * @param url URL de la ubicación del archivo FXML.
+     * @param resourceBundle  El ResourceBundle que se puede utilizar para localizar objetos de la interfaz de usuario.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //iniciamos los elementos
         lblTituloPedidoNum.setText("Pedido número "+Session.getCurrentPedido().getCódigo());
-
 
         tablaEditItem.getItems().addAll(Session.getCurrentPedido().getItems());
         cCantidad.setCellValueFactory((fila) -> {
@@ -64,7 +76,7 @@ public class EditPedidoController implements Initializable {
 
 
     /**
-     * @param actionEvent El método añadirItem
+     * @param actionEvent El método añadirItem agrea un nuevo item al pedido.
      */
     @javafx.fxml.FXML
     public void añadirItem(ActionEvent actionEvent) {
@@ -73,21 +85,24 @@ public class EditPedidoController implements Initializable {
 
         itemNuevo.setProducto(comboProducto.getValue());
         itemNuevo.setCodigo(Session.getCurrentPedido());
-
+//añadimos el item a la tabla
         tablaEditItem.getItems().add(itemNuevo);
         actualizarTotalPedido();
         //guardamos el item en la base de datos
         Session.setCurrentItem((new ItemDAO()).save(itemNuevo));
     }
 
+    /**
+     * @param actionEvent El método borrarItem borra el item seleccionado del pedido.
+     */
     @javafx.fxml.FXML
     public void borrarItem(ActionEvent actionEvent) {
-        // Obtener el item seleccionado
+        // Obtenemos el item seleccionado
         Item itemSeleccionado = tablaEditItem.getSelectionModel().getSelectedItem();
         Session.setCurrentItem(itemSeleccionado);
-
+        //creamos el alert de confirmación
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setContentText("¿Seguro que quieres borrar el producto " + "'"+ Session.getCurrentProducto().getNombre()+"'");
+        alert.setContentText("¿Seguro que quieres borrar el producto " + "'"+ Session.getCurrentItem().getProducto().getNombre()+"' ?");
         var result = alert.showAndWait().get();
 
         if (result.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
@@ -95,14 +110,15 @@ public class EditPedidoController implements Initializable {
                 // Eliminar de la tabla
                 tablaEditItem.getItems().remove(itemSeleccionado);
                 actualizarTotalPedido();
-                // Eliminar de la base de datos si es necesario
+                // Eliminar de la base de datos
                 ItemDAO itemDAO = new ItemDAO();
                 itemDAO.delete(itemSeleccionado);
+                //creamos el alert para confirmar que se ha borrado
                 Alert alert3 = new Alert(Alert.AlertType.INFORMATION);
-                alert3.setContentText("Pedido borrado correctamente");
+                alert3.setContentText("Item borrado correctamente");
                 alert3.show();
             } else {
-                // Manejar si no se ha seleccionado ningún item para borrar
+                // Alert si no se ha seleccionado ningún item
                 Alert alert2 = new Alert(Alert.AlertType.ERROR);
                 alert2.setTitle("Error");
                 alert2.setHeaderText("No se ha seleccionado ningun item.");
@@ -112,6 +128,9 @@ public class EditPedidoController implements Initializable {
         }
     }
 
+    /**
+     * @param actionEvent El método cancelar cancela la edición y vuelve a la ventana principal.
+     */
     @javafx.fxml.FXML
     public void cancelar(ActionEvent actionEvent) {
         try {
@@ -121,6 +140,9 @@ public class EditPedidoController implements Initializable {
         }
     }
 
+    /**
+     * @param actionEvent El método guardarItems guarda los cambios de los items del pedido.
+     */
     @javafx.fxml.FXML
     public void guardarItems(ActionEvent actionEvent) {
         ItemDAO itemDAO = new ItemDAO();
@@ -132,6 +154,7 @@ public class EditPedidoController implements Initializable {
             for (Item item : itemsTabla) {
                 itemDAO.update(item);
             }
+            //Alert para confirmar que se han guardado los items.
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("Productos guardados correctamente");
             alert.show();
@@ -144,6 +167,9 @@ public class EditPedidoController implements Initializable {
 
     }
 
+    /**
+     * El método actualizarTotalPedido actualiza el coste total tras modificar los items.
+     */
     public void actualizarTotalPedido() {
         PedidoDAO pedidoDAO = new PedidoDAO();
         double totalPedido = pedidoDAO.calcularTotalPedido(tablaEditItem.getItems());
@@ -153,6 +179,9 @@ public class EditPedidoController implements Initializable {
         pedidoDAO.update(pedidoActual);
     }
 
+    /**
+     * @param event El evento infoEdit se activa al pulsar sobre el botón de información. Esta información ayuda al usuario a entender como utilizar esta ventana.
+     */
     @javafx.fxml.FXML
     public void infoEdit(Event event) {
         //Creación del alert.

@@ -16,7 +16,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * La clase LoginController es el controlador para iniciar sesión.
+ */
 public class LoginController implements Initializable {
+    /**
+     * Declaración de elementos
+     */
     @javafx.fxml.FXML
     private TextField txtUsuario;
     @javafx.fxml.FXML
@@ -32,7 +38,7 @@ public class LoginController implements Initializable {
     }
 
     /**
-     * @param actionEvent
+     * @param actionEvent El método login comprueba que el usuario y la contraseña que se han introducido esten en la base de datos y accede a su ventana de pedidos.
      */
     @javafx.fxml.FXML
     public void login(ActionEvent actionEvent) {
@@ -43,17 +49,16 @@ public class LoginController implements Initializable {
             info.setText("Introduce tus datos");
 
         } else {
-            /* ACCESO A BASE DE DATOS PARA LA VALIDACION */
+            //comprobamos si el usuario esta en la base de datos
             Usuario u = (new UsuarioDAO()).validateUser(nombre, contraseña);
 
             if (u == null) {
                 info.setText("Usuario o contraseña incorrecto");
 
             } else {
+                //Guardamos el usuario en sesión e iremos a su ventana principal
                 info.setText("Usuario correcto. ¡Bienvenid@ " + nombre + " !");
                 Session.setCurrentUser(u);
-
-                /* Guardar usuario en sesión e ir a la proxima ventana */
                 try {
                     App.changeScene("main-view.fxml", "Ventana de pedidos");
                 } catch (IOException e) {
