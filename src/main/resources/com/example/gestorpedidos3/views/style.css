@@ -9,27 +9,27 @@
     -fx-background-image: url("../img/stacked-waves-haikei.png");
     -fx-background-size: 100%;
 }
-.buttonPequeno{
+
+.buttonPequeno {
     -fx-background-color: blue;
     -fx-text-fill: white;
     -fx-padding: 5px 10px;
-
     -fx-background-radius: 50px;
 }
-.buttonPequeno:hover{
-    -fx-background-color: #8e8eff;
+
+.buttonPequeno:hover {
+    -fx-background-color: #5c5cff;
     -fx-text-fill: white;
     -fx-padding: 5px 10px;
 
     -fx-background-radius: 50px;
 }
+
 .buttonLogout {
     -fx-background-color: blue;
     -fx-text-fill: white;
-
     -fx-padding: 16px 20px;
     -fx-background-radius: 50px;
-
 }
 
 .buttonVolver {
@@ -39,7 +39,6 @@
 }
 
 .buttonLogout:hover {
-
     -fx-background-color: white;
     -fx-text-fill: blue;
     -fx-padding: 16px 20px;

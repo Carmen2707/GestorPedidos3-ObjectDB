@@ -9,6 +9,11 @@ import org.hibernate.query.Query;
 import java.util.ArrayList;
 
 public class UsuarioDAO implements DAO<Usuario> {
+    /**
+     * @param nombre
+     * @param contraseña
+     * @return
+     */
     public Usuario validateUser(String nombre, String contraseña) {
         Usuario result = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -54,7 +59,6 @@ public class UsuarioDAO implements DAO<Usuario> {
     public Usuario save(Usuario data) {
         return null;
     }
-
 
 
     @Override

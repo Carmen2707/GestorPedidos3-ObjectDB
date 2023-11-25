@@ -26,9 +26,10 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Pedido> pedidos = new ArrayList<>(0);
 
-    public Usuario() {
-    }
 
+    /**
+     * @return
+     */
     @Override
     public String toString() {
         return "Usuario{" +
@@ -36,8 +37,8 @@ public class Usuario {
                 ", nombre='" + nombre + '\'' +
                 ", contraseña='" + contraseña + '\'' +
                 ", email='" + email + '\'' +
-               //   ", pedidosQuantity=" + pedidosQuantity +
-               //  ", pedidos=" + pedidos +
+                //   ", pedidosQuantity=" + pedidosQuantity +
+                ", pedidos=" + pedidos +
                 '}';
     }
 }

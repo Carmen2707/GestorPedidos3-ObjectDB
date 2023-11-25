@@ -18,4 +18,13 @@ public class Producto implements Serializable {
     private String precio;
     @Column(name = "cantidad_disponible")
     private int cantidad_disponible;
+
+    /**
+     * @return
+     */
+    @Override
+    public String toString() {
+        return " " + nombre +
+                ", (" + precio + ")";
+    }
 }

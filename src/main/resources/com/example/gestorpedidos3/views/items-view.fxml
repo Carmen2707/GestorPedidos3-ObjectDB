@@ -10,6 +10,7 @@
             prefWidth="1000.0" styleClass="ventana2" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.gestorpedidos3.controllers.ItemsViewController">
+
     <center>
         <TableView fx:id="tablaItems" onMouseClicked="#clickProducto" prefHeight="200.0" prefWidth="200.0"
                    styleClass="tabla" stylesheets="@style.css" BorderPane.alignment="CENTER">
@@ -24,7 +25,9 @@
             </columnResizePolicy>
         </TableView>
     </center>
+
     <top>
+
         <FlowPane alignment="CENTER_LEFT" BorderPane.alignment="TOP_RIGHT">
             <BorderPane.margin>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>

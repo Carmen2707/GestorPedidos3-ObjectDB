@@ -3,13 +3,15 @@ package com.example.gestorpedidos3.domain.producto;
 
 import com.example.gestorpedidos3.domain.DAO;
 import com.example.gestorpedidos3.domain.HibernateUtil;
-import com.example.gestorpedidos3.domain.pedido.Pedido;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
 public class ProductoDAO implements DAO<Producto> {
+    /**
+     * @return
+     */
     @Override
     public ArrayList<Producto> getAll() {
         var salida = new ArrayList<Producto>(0);
@@ -33,7 +35,6 @@ public class ProductoDAO implements DAO<Producto> {
     }
 
 
-
     @Override
     public void update(Producto data) {
 
@@ -43,4 +44,5 @@ public class ProductoDAO implements DAO<Producto> {
     public void delete(Producto data) {
 
     }
+
 }

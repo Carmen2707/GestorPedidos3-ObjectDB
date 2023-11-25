@@ -4,11 +4,8 @@ import com.example.gestorpedidos3.App;
 import com.example.gestorpedidos3.Session;
 import com.example.gestorpedidos3.domain.item.Item;
 import com.example.gestorpedidos3.domain.pedido.PedidoDAO;
-import com.example.gestorpedidos3.domain.usuario.Usuario;
-import com.example.gestorpedidos3.domain.usuario.UsuarioDAO;
+import com.example.gestorpedidos3.domain.producto.Producto;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
@@ -41,8 +38,22 @@ public class ItemsViewController implements Initializable {
     @javafx.fxml.FXML
     private Button logout;
 
+    /**
+     * @param event
+     */
     @javafx.fxml.FXML
     public void clickProducto(Event event) {
+        Producto productoSeleccionado = tablaItems.getSelectionModel().getSelectedItem().getProducto();
+        Session.setCurrentProducto(productoSeleccionado);
+        //Creación del alert.
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Información del producto");
+        alert.setHeaderText("Esta es la información de tu producto " + productoSeleccionado.getId());
+        alert.setContentText("Nombre del producto: " + productoSeleccionado.getNombre() + "\n"
+                + "Precio del producto: " + productoSeleccionado.getPrecio() + "\n"
+                + "Cantidad disponible del producto: " + productoSeleccionado.getCantidad_disponible());
+
+        alert.showAndWait();
     }
 
     @javafx.fxml.FXML
@@ -56,13 +67,12 @@ public class ItemsViewController implements Initializable {
 
     @javafx.fxml.FXML
     public void infoPedido(ActionEvent actionEvent) {
-        Usuario u = (new UsuarioDAO().get(Session.getCurrentUser().getId()));
         //Creación del alert
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información de la ventana de los detalles del pedido");
-        alert.setHeaderText("¡Hola " + u.getNombre() + "!");
+        alert.setHeaderText("¡Hola " + Session.getCurrentUser().getNombre() + "!");
         alert.setContentText("En esta ventana puedes ver los detalles del pedido que has seleccionado. ¡Para ver los productos de tu pedido pulsa sobre él!");
-        alert.getDialogPane().setPrefSize(400, 200);
+        alert.getDialogPane().setPrefSize(400, 250);
         alert.showAndWait();
     }
 
@@ -81,22 +91,20 @@ public class ItemsViewController implements Initializable {
         cIDItem.setCellValueFactory((fila) -> {
             return new SimpleStringProperty(fila.getValue().getId() + "");
         });
-       cCodigoItem.setCellValueFactory((fila) -> {
+        cCodigoItem.setCellValueFactory((fila) -> {
             return new SimpleStringProperty(fila.getValue().getCodigo() + "");
         });
         cCantidadItem.setCellValueFactory((fila) -> {
             return new SimpleStringProperty(fila.getValue().getCantidad() + "");
         });
-       cProductoItem.setCellValueFactory((fila) -> {
+        cProductoItem.setCellValueFactory((fila) -> {
             return new SimpleStringProperty(fila.getValue().getProducto() + "");
         });
 
 
-
-
-        //Actualizo el usuario desde la bbdd
-        //Session.setCurrentPedido((new PedidoDAO()).get(Session.getCurrentPedido().getId()));
+//llena la tabla de items
+        Session.setCurrentPedido((new PedidoDAO()).get(Session.getCurrentPedido().getId()));
         tablaItems.getItems().addAll(Session.getCurrentPedido().getItems());
-        System.out.println(Session.getCurrentPedido().getItems());
+
     }
 }

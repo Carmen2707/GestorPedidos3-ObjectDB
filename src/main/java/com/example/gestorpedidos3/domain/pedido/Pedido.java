@@ -28,24 +28,28 @@ public class Pedido implements Serializable {
     @JoinColumn(name = "usuario", referencedColumnName = "id")
     private Usuario usuario;
 
-   @OneToMany(mappedBy = "codigo", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "codigo", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items = new ArrayList<>();
 
     @Column(name = "total")
     private Double total;
 
 
-    public Pedido() {
-    }
-
+    /**
+     * @return
+     */
     @Override
     public String toString() {
-        return "Pedido{" +
-                "id=" + id +
-                ", código='" + código + '\'' +
-                ", fecha=" + fecha +
-            //   ", usuario=" + usuario +
-                ", total=" + total +
-                '}';
+        return código;
+    }
+
+    public static void merge(Pedido origen, Pedido destino) {
+
+        destino.setId(origen.getId());
+        destino.setCódigo(origen.getCódigo());
+        destino.setUsuario(origen.getUsuario());
+        destino.setFecha(origen.getFecha());
+        destino.setTotal(origen.getTotal());
+
     }
 }

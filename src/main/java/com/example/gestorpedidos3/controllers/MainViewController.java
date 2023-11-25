@@ -2,23 +2,17 @@ package com.example.gestorpedidos3.controllers;
 
 import com.example.gestorpedidos3.App;
 import com.example.gestorpedidos3.Session;
-import com.example.gestorpedidos3.domain.item.Item;
 import com.example.gestorpedidos3.domain.pedido.Pedido;
 import com.example.gestorpedidos3.domain.pedido.PedidoDAO;
-import com.example.gestorpedidos3.domain.usuario.Usuario;
 import com.example.gestorpedidos3.domain.usuario.UsuarioDAO;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainViewController implements Initializable {
@@ -49,18 +43,17 @@ public class MainViewController implements Initializable {
     @javafx.fxml.FXML
     private Button btnEditar;
 
-    @javafx.fxml.FXML
-    public void click(Event event) {
-    }
-
+    /**
+     * @param actionEvent
+     */
     @javafx.fxml.FXML
     public void infoUsuario(ActionEvent actionEvent) {
-        Usuario u = (new UsuarioDAO().get(Session.getCurrentUser().getId()));
         //Creación del alert.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información de la ventana de pedidos");
-        alert.setHeaderText("¡Hola " + u.getNombre() + "!" + "\n" + "El correo con el que te registraste es: " + u.getEmail());
-        alert.setContentText("En esta ventana puedes ver tus pedidos realizos." + "\n" + "¡Para ver los detalles de tu pedido pulsa sobre él!");
+        alert.setHeaderText("¡Hola " +  Session.getCurrentUser().getNombre() + "!" + "\n" + "El correo con el que te registraste es: " +  Session.getCurrentUser().getEmail());
+        alert.setContentText("En esta ventana puedes ver tus pedidos realizados." + "\n" + "¡Haz click sobre un pedido y cuando este en azul pulsa sobre el botón que quieras!");
+        alert.getDialogPane().setPrefSize(400, 250);
         alert.showAndWait();
     }
 
@@ -76,11 +69,9 @@ public class MainViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Usuario u = (new UsuarioDAO().get(Session.getCurrentUser().getId()));
-        if (u != null) {
-            String nombre = u.getNombre();
-            lblUsuario.setText("Bienvenid@ " + nombre);
-        }
+
+        Session.setCurrentUser((new UsuarioDAO()).get(Session.getCurrentUser().getId()));
+        lblUsuario.setText("Bienvenid@ " + Session.getCurrentUser().getNombre());
 
         idColumnID.setCellValueFactory((fila) -> {
             return new SimpleStringProperty(fila.getValue().getId() + "");
@@ -91,37 +82,27 @@ public class MainViewController implements Initializable {
         idColumnFecha.setCellValueFactory((fila) -> {
             return new SimpleStringProperty(fila.getValue().getFecha());
         });
-        idColumnUsuario.setCellValueFactory( (fila)->{
-            return new SimpleStringProperty(fila.getValue().getUsuario().getId()+"");
-        } );
+        idColumnUsuario.setCellValueFactory((fila) -> {
+            return new SimpleStringProperty(fila.getValue().getUsuario().getNombre());
+        });
         idColumnTotal.setCellValueFactory((fila) -> {
-            return new SimpleStringProperty(fila.getValue().getTotal() + "");
+            return new SimpleStringProperty(fila.getValue().getTotal() + "€");
         });
 
 
+//llenamos la tabla
 
-        //Actualizo el usuario desde la bbdd
-        Session.setCurrentUser((new UsuarioDAO()).get(Session.getCurrentUser().getId()));
-        tabla.getItems().addAll(Session.getCurrentUser ().getPedidos());
-
-
+        tabla.getItems().addAll(Session.getCurrentUser().getPedidos());
     }
 
     @javafx.fxml.FXML
     public void agregarPedido(ActionEvent actionEvent) {
         Pedido pedidoNuevo = new Pedido();
         //añadimos la fecha de hoy al pedido
-        pedidoNuevo.setFecha(LocalDate.now()+"");
+        pedidoNuevo.setFecha(LocalDate.now() + "");
 
 
         PedidoDAO pedidoDAO = new PedidoDAO();
-
-
-        Long ultimoID = pedidoDAO.getUltimoID();
-
-        Long nuevoID = ultimoID + 1;
-        pedidoNuevo.setId(nuevoID);
-
 
         String ultimoCodigo = pedidoDAO.getUltimoCodigo();
         int ultimoNum = Integer.parseInt(ultimoCodigo.substring(4));
@@ -132,7 +113,7 @@ public class MainViewController implements Initializable {
         //añadimos el usuario que ha creado ese pedido
         pedidoNuevo.setUsuario(Session.getCurrentUser());
         //añadimos el total a la tabla
-        Double total = calcularTotalPedido(pedidoNuevo.getItems());
+        Double total = pedidoDAO.calcularTotalPedido(pedidoNuevo.getItems());
         pedidoNuevo.setTotal(total);
 
         tabla.getItems().add(pedidoNuevo);
@@ -141,69 +122,80 @@ public class MainViewController implements Initializable {
     }
 
 
-    private double calcularTotalPedido(List<Item> items) {
-        double totalPedido = 0.0;
-        for (Item item : items) {
-            int cantidad = item.getCantidad();
-            double precio = Double.parseDouble(item.getProducto().getPrecio());
-            totalPedido += cantidad * precio;
-        }
-        return totalPedido;
-    }
-
     @javafx.fxml.FXML
     public void borrarPedido(ActionEvent actionEvent) {
 
-            // Obtener el pedido seleccionado
-            Pedido pedidoSeleccionado = tabla.getSelectionModel().getSelectedItem();
+        // Obtener el pedido seleccionado
+        Pedido pedidoSeleccionado = tabla.getSelectionModel().getSelectedItem();
+        Session.setCurrentPedido(pedidoSeleccionado);
+        if (pedidoSeleccionado != null) {
+            PedidoDAO pedidoDAO = new PedidoDAO();
 
-            if (pedidoSeleccionado != null) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("¿Seguro que quieres borrar el pedido " + Session.getCurrentPedido().getCódigo() + " ?");
+            var result = alert.showAndWait().get();
+
+            if (result.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                 // Eliminar de la tabla
                 tabla.getItems().remove(pedidoSeleccionado);
 
                 // Eliminar de la base de datos si es necesario
-                PedidoDAO pedidoDAO = new PedidoDAO();
                 pedidoDAO.delete(pedidoSeleccionado);
-            } else {
-                // Manejar si no se ha seleccionado ningún pedido para borrar
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("No se ha seleccionado ningun pedido.");
-                alert.setContentText("Selecciona sobre un pedido para borrarlo.");
-                alert.showAndWait();
+
+                Alert alert3 = new Alert(Alert.AlertType.INFORMATION);
+                alert3.setContentText("Pedido borrado correctamente");
+                alert3.show();
+
             }
+        } else {
+            // Alert si no se ha seleccionado ningún pedido
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Error");
+            alert2.setHeaderText("No se ha seleccionado ningun pedido.");
+            alert2.setContentText("Selecciona sobre un pedido para borrarlo.");
+            alert2.showAndWait();
         }
+    }
 
     @javafx.fxml.FXML
     public void verDetalles(ActionEvent actionEvent) {
         Pedido pedidoSeleccionado = tabla.getSelectionModel().getSelectedItem();
+        Session.setCurrentPedido(pedidoSeleccionado);
+
         if (pedidoSeleccionado != null) {
             try {
                 App.changeScene("items-view.fxml", "Detalles del pedido");
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+        }else {
+            // Alert si no se ha seleccionado ningún pedido
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Error");
+            alert2.setHeaderText("No se ha seleccionado ningun pedido.");
+            alert2.setContentText("Selecciona sobre un pedido para ver sus detalles.");
+            alert2.showAndWait();
         }
 
     }
 
     @javafx.fxml.FXML
     public void editarPedido(ActionEvent actionEvent) {
-        tabla.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Pedido>() {
-            @Override
-            public void changed(ObservableValue<? extends Pedido> observableValue, Pedido pedido, Pedido t1) {
-                if (t1 != null){
-                    Pedido pedido1=tabla.getSelectionModel().getSelectedItem();
-                    Session.setCurrentPedido(pedido1);
-                    try {
-                        App.changeScene("edit-pedido.fxml", "Detalles del pedido");
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-
-
+        Pedido pedidoSeleccionado = tabla.getSelectionModel().getSelectedItem();
+        Session.setCurrentPedido(pedidoSeleccionado);
+        if (pedidoSeleccionado != null) {
+            try {
+                App.changeScene("edit-pedido.fxml", "Editar el pedido");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
-        });
+        }else {
+            // Alert si no se ha seleccionado ningún pedido
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Error");
+            alert2.setHeaderText("No se ha seleccionado ningun pedido.");
+            alert2.setContentText("Selecciona sobre un pedido para editarlo.");
+            alert2.showAndWait();
+        }
     }
 }

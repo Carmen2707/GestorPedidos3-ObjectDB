@@ -13,9 +13,9 @@ module com.example.gestorpedidos3 {
     exports com.example.gestorpedidos3;
     exports com.example.gestorpedidos3.controllers;
 
-       opens com.example.gestorpedidos3.domain.item;
+    opens com.example.gestorpedidos3.domain.item;
     opens com.example.gestorpedidos3.domain.pedido;
-   opens com.example.gestorpedidos3.domain.producto;
+    opens com.example.gestorpedidos3.domain.producto;
     opens com.example.gestorpedidos3.domain.usuario;
 
     opens com.example.gestorpedidos3.controllers to javafx.fxml;

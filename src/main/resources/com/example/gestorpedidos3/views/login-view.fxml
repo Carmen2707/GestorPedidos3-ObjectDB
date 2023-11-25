@@ -8,10 +8,11 @@
 <?import javafx.scene.text.*?>
 <BorderPane id="ventana" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0"
             styleClass="ventana" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.gestorpedidos3.controllers.LoginController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestorpedidos3.controllers.LoginController">
     <center>
+
         <VBox alignment="CENTER" prefHeight="528.0" prefWidth="417.0" BorderPane.alignment="CENTER">
+
             <children>
                 <Label id="titulo" stylesheets="@style.css" text="LOGIN" textFill="WHITE">
                     <font>
@@ -66,9 +67,11 @@
                 <Insets/>
             </BorderPane.margin>
         </VBox>
+
     </center>
     <right>
         <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+
             <children>
                 <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -88,8 +91,8 @@
             </children>
             <BorderPane.margin>
                 <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+
             </BorderPane.margin>
         </VBox>
     </right>
 </BorderPane>
-

@@ -31,6 +31,9 @@ public class LoginController implements Initializable {
 
     }
 
+    /**
+     * @param actionEvent
+     */
     @javafx.fxml.FXML
     public void login(ActionEvent actionEvent) {
         String nombre = txtUsuario.getText();
