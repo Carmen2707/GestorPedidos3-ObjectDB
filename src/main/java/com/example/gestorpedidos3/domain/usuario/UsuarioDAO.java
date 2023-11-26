@@ -8,11 +8,15 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
+/**
+ * La clase UsuarioDAO implementa la interfaz DAO para realizar varias operaciones.
+ */
 public class UsuarioDAO implements DAO<Usuario> {
     /**
-     * @param nombre
-     * @param contraseña
-     * @return
+     * Valida el usuario utilizando el nombre de usuario y la contraseña proporcionados.
+     * @param nombre el nombre de usuario
+     * @param contraseña la contraseña del usuario
+     * @return devuelve el usuario validado o null si la validación falla
      */
     public Usuario validateUser(String nombre, String contraseña) {
         Usuario result = null;
@@ -32,18 +36,17 @@ public class UsuarioDAO implements DAO<Usuario> {
         return result;
     }
 
+
     @Override
     public ArrayList<Usuario> getAll() {
-        var salida = new ArrayList<Usuario>(0);
-
-        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Usuario> q = s.createQuery("from Usuario", Usuario.class);
-            salida = (ArrayList<Usuario>) q.getResultList();
-        }
-
-        return salida;
+        return null;
     }
 
+    /**
+     * Obtiene un usuario segun su id.
+     * @param id es el id del usuario que se quiere obtener.
+     * @return devuelve el usuario con el id especificado.
+     */
     @Override
     public Usuario get(Long id) {
         var salida = new Usuario();

@@ -8,27 +8,44 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * La clase Usuario representa un usuario de la base de datos.
+ */
 @Data
 @Entity
 @Table(name = "usuarios")
 public class Usuario {
+    /**
+     * Id del usuario.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    /**
+     * Nombre del usuario.
+     */
     @Column(name = "nombre")
     private String nombre;
+    /**
+     * Contraseña del usuario.
+     */
     @Column(name = "contraseña")
     private String contraseña;
+    /**
+     * Email del usuario.
+     */
     @Column(name = "email")
     private String email;
-    @Transient
-    private Long pedidosQuantity;
+
+    /**
+     * Lista de pedidos que tiene ese usuario.
+     */
     @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
     private List<Pedido> pedidos = new ArrayList<>(0);
 
 
     /**
-     * @return
+     * @return devuelve una cadena con las caracteristicas del usuario.
      */
     @Override
     public String toString() {
@@ -37,7 +54,6 @@ public class Usuario {
                 ", nombre='" + nombre + '\'' +
                 ", contraseña='" + contraseña + '\'' +
                 ", email='" + email + '\'' +
-                //   ", pedidosQuantity=" + pedidosQuantity +
                 ", pedidos=" + pedidos +
                 '}';
     }

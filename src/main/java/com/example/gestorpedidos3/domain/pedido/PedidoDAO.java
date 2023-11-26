@@ -11,22 +11,20 @@ import org.hibernate.query.Query;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * La clase PedidoDAO implementa la interfaz DAO para realizar varias operaciones.
+ */
 public class PedidoDAO implements DAO<Pedido> {
-    /**
-     * @return
-     */
+
     @Override
     public ArrayList<Pedido> getAll() {
-        var salida = new ArrayList<Pedido>(0);
-
-        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Pedido> q = s.createQuery("from Pedido", Pedido.class);
-            salida = (ArrayList<Pedido>) q.getResultList();
-        }
-
-        return salida;
+   return null;
     }
 
+    /**
+     * @param id el ID del pedido a recuperar.
+     * @return devuelve el pedido correspondiente al ID proporcionado.
+     */
     @Override
     public Pedido get(Long id) {
         var salida = new Pedido();
@@ -37,6 +35,10 @@ public class PedidoDAO implements DAO<Pedido> {
         return salida;
     }
 
+    /**
+     * @param data es el pedido que se va a guardar.
+     * @return devuelve el pedido guardado.
+     */
     @Override
     public Pedido save(Pedido data) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
@@ -62,6 +64,9 @@ public class PedidoDAO implements DAO<Pedido> {
     }
 
 
+    /**
+     * @return devuelve el último código de pedido registrado en la base de datos
+     */
     public String getUltimoCodigo() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             Query<String> query = session.createQuery("select max(p.código) from Pedido p", String.class);
@@ -73,8 +78,8 @@ public class PedidoDAO implements DAO<Pedido> {
     }
 
     /**
-     * @param items items es la lista donde están todos los items del pedido.
-     * @return este método calcularTotalPedido devuelve el coste total del pedido ya que ha sumado el precio de todos los items.
+     * @param items es la lista donde están todos los items del pedido.
+     * @return devuelve el coste total del pedido ya que ha sumado el precio de todos los items.
      */
     public double calcularTotalPedido(List<Item> items) {
         double totalPedido = 0.0;
@@ -87,6 +92,10 @@ public class PedidoDAO implements DAO<Pedido> {
         return totalPedido;
     }
 
+    /**
+     * Actualiza un pedido de la base de datos.
+     * @param data el pedido con los nuevos datos.
+     */
     @Override
     public void update(Pedido data) {
         try (org.hibernate.Session s = HibernateUtil.getSessionFactory().openSession()) {
@@ -99,6 +108,10 @@ public class PedidoDAO implements DAO<Pedido> {
         }
     }
 
+    /**
+     * Elimina el pedido seleccionado de la base de datos.
+     * @param data el pedido a eliminar.
+     */
     @Override
     public void delete(Pedido data) {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {

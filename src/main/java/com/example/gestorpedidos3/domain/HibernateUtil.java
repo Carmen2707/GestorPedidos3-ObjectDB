@@ -5,6 +5,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 
+/**
+ * La clase HibernateUtil proporciona métodos para manejar la SessionFactory de Hibernate.
+ */
 @Log
 public class HibernateUtil {
 
@@ -22,7 +25,7 @@ public class HibernateUtil {
     }
 
     /**
-     * @return
+     * @return devuelve la SessionFactory actual
      */
     public static SessionFactory getSessionFactory() {
         return sf;

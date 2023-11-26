@@ -8,9 +8,12 @@ import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
+/**
+ * La clase ProductoDAO implementa la interfaz DAO para realizar varias operaciones.
+ */
 public class ProductoDAO implements DAO<Producto> {
     /**
-     * @return
+     * @return Devuelve una lista de todos los productos almacenados en la base de datos.
      */
     @Override
     public ArrayList<Producto> getAll() {

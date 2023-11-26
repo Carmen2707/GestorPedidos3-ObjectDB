@@ -15,6 +15,9 @@ import java.io.Serializable;
 @Entity
 @Table(name = "items")
 public class Item implements Serializable {
+    /**
+     * Id del item.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

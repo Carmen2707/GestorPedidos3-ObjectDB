@@ -13,19 +13,10 @@ import java.util.ArrayList;
  * La clase ItemDAO implementa la interfaz DAO para realizar varias operaciones.
  */
 public class ItemDAO implements DAO<Item> {
-    /**
-     * @return Devuelve una lista de todos los ítems almacenados en la base de datos.
-     */
+
     @Override
     public ArrayList<Item> getAll() {
-        var salida = new ArrayList<Item>(0);
-
-        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Item> q = s.createQuery("from Item", Item.class);
-            salida = (ArrayList<Item>) q.getResultList();
-        }
-
-        return salida;
+  return null;
     }
 
     /**
