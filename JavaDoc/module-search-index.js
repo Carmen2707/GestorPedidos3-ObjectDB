@@ -1,1 +1,2 @@
-moduleSearchIndex = [{"l":"com.example.gestorpedidos3"}];updateSearchResults();
+moduleSearchIndex = [{"l": "com.example.gestorpedidos3"}];
+updateSearchResults();

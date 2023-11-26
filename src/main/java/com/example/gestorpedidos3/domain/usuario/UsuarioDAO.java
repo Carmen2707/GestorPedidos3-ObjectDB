@@ -14,7 +14,8 @@ import java.util.ArrayList;
 public class UsuarioDAO implements DAO<Usuario> {
     /**
      * Valida el usuario utilizando el nombre de usuario y la contraseña proporcionados.
-     * @param nombre el nombre de usuario
+     *
+     * @param nombre     el nombre de usuario
      * @param contraseña la contraseña del usuario
      * @return devuelve el usuario validado o null si la validación falla
      */
@@ -44,6 +45,7 @@ public class UsuarioDAO implements DAO<Usuario> {
 
     /**
      * Obtiene un usuario segun su id.
+     *
      * @param id es el id del usuario que se quiere obtener.
      * @return devuelve el usuario con el id especificado.
      */

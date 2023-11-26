@@ -57,7 +57,8 @@ public class Item implements Serializable {
 
     /**
      * Actualiza los datos.
-     * @param origen el ítem de origen
+     *
+     * @param origen  el ítem de origen
      * @param destino el ítem de destino
      */
     public static void merge(Item origen, Item destino) {

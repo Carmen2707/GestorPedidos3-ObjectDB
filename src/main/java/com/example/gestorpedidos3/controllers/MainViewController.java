@@ -58,7 +58,7 @@ public class MainViewController implements Initializable {
         //Creación del alert.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información de la ventana de pedidos");
-        alert.setHeaderText("¡Hola " +  Session.getCurrentUser().getNombre() + "!" + "\n" + "El correo con el que te registraste es: " +  Session.getCurrentUser().getEmail());
+        alert.setHeaderText("¡Hola " + Session.getCurrentUser().getNombre() + "!" + "\n" + "El correo con el que te registraste es: " + Session.getCurrentUser().getEmail());
         alert.setContentText("En esta ventana puedes ver tus pedidos realizados." + "\n" + "¡Haz click sobre un pedido y cuando este en azul pulsa sobre el botón de la acción que quieras realizar!");
         alert.getDialogPane().setPrefSize(400, 250);
         alert.showAndWait();
@@ -80,7 +80,8 @@ public class MainViewController implements Initializable {
 
     /**
      * El método initialize inicia la ventana.
-     * @param url URL de la ubicación del archivo FXML.
+     *
+     * @param url            URL de la ubicación del archivo FXML.
      * @param resourceBundle El ResourceBundle que se puede utilizar para localizar objetos de la interfaz de usuario.
      */
     @Override
@@ -191,7 +192,7 @@ public class MainViewController implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }else {
+        } else {
             // Alert si no se ha seleccionado ningún pedido
             Alert alert2 = new Alert(Alert.AlertType.ERROR);
             alert2.setTitle("Error");
@@ -215,7 +216,7 @@ public class MainViewController implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-        }else {
+        } else {
             // Alert si no se ha seleccionado ningún pedido
             Alert alert2 = new Alert(Alert.AlertType.ERROR);
             alert2.setTitle("Error");

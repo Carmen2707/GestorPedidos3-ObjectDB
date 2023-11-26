@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * La interfaz DAO define las operaciones básicas para acceder y manipular entidades en la base de datos.
+ *
  * @param <T> el tipo de entidad con el que opera la interfaz
  */
 public interface DAO<T> {
@@ -20,6 +21,7 @@ public interface DAO<T> {
 
     /**
      * Guarda un elemento del tipo especificado en la base de datos.
+     *
      * @param data es el elemento que se quiere guardar.
      * @return devuelve el elemento guardado.
      */
@@ -27,12 +29,14 @@ public interface DAO<T> {
 
     /**
      * Actualiza un elemento del tipo especificado en la base de datos.
+     *
      * @param data es el elemento que se quiere actualizar
      */
     public void update(T data);
 
     /**
      * Elimina un elemento del tipo especificado de la base de datos.
+     *
      * @param data es el elemento que se quiere eliminar
      */
     public void delete(T data);

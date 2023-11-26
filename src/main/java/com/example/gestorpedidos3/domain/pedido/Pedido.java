@@ -65,7 +65,8 @@ public class Pedido implements Serializable {
 
     /**
      * Actualiza los datos.
-     * @param origen el pedido de origen.
+     *
+     * @param origen  el pedido de origen.
      * @param destino el pedido de destino.
      */
     public static void merge(Pedido origen, Pedido destino) {

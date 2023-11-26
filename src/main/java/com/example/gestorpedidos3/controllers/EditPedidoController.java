@@ -53,20 +53,21 @@ public class EditPedidoController implements Initializable {
 
     /**
      * El método initialize inicia la ventana.
-     * @param url URL de la ubicación del archivo FXML.
-     * @param resourceBundle  El ResourceBundle que se puede utilizar para localizar objetos de la interfaz de usuario.
+     *
+     * @param url            URL de la ubicación del archivo FXML.
+     * @param resourceBundle El ResourceBundle que se puede utilizar para localizar objetos de la interfaz de usuario.
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //iniciamos los elementos
-        lblTituloPedidoNum.setText("Pedido número "+Session.getCurrentPedido().getCódigo());
+        lblTituloPedidoNum.setText("Pedido número " + Session.getCurrentPedido().getCódigo());
 
         tablaEditItem.getItems().addAll(Session.getCurrentPedido().getItems());
         cCantidad.setCellValueFactory((fila) -> {
             return new SimpleStringProperty(fila.getValue().getCantidad() + "");
         });
         cProducto.setCellValueFactory((fila) -> {
-            return new SimpleStringProperty(fila.getValue().getProducto()+"");
+            return new SimpleStringProperty(fila.getValue().getProducto() + "");
         });
 
         spinnerCantidad.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 0, 1));
@@ -85,11 +86,13 @@ public class EditPedidoController implements Initializable {
 
         itemNuevo.setProducto(comboProducto.getValue());
         itemNuevo.setCodigo(Session.getCurrentPedido());
-//añadimos el item a la tabla
+        //añadimos el item a la tabla
         tablaEditItem.getItems().add(itemNuevo);
-        actualizarTotalPedido();
+
         //guardamos el item en la base de datos
         Session.setCurrentItem((new ItemDAO()).save(itemNuevo));
+
+
     }
 
     /**
@@ -100,33 +103,35 @@ public class EditPedidoController implements Initializable {
         // Obtenemos el item seleccionado
         Item itemSeleccionado = tablaEditItem.getSelectionModel().getSelectedItem();
         Session.setCurrentItem(itemSeleccionado);
-        //creamos el alert de confirmación
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setContentText("¿Seguro que quieres borrar el producto " + "'"+ Session.getCurrentItem().getProducto().getNombre()+"' ?");
-        var result = alert.showAndWait().get();
+        if (itemSeleccionado != null) {
+            //creamos el alert de confirmación
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("¿Seguro que quieres borrar el producto " + "'" + Session.getCurrentItem().getProducto().getNombre() + "' ?");
+            var result = alert.showAndWait().get();
 
-        if (result.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
-            if (itemSeleccionado != null) {
+            if (result.getButtonData() == ButtonBar.ButtonData.OK_DONE) {
                 // Eliminar de la tabla
                 tablaEditItem.getItems().remove(itemSeleccionado);
-                actualizarTotalPedido();
-                // Eliminar de la base de datos
+
+                //borramos de la base de datos
                 ItemDAO itemDAO = new ItemDAO();
                 itemDAO.delete(itemSeleccionado);
+
                 //creamos el alert para confirmar que se ha borrado
                 Alert alert3 = new Alert(Alert.AlertType.INFORMATION);
                 alert3.setContentText("Item borrado correctamente");
                 alert3.show();
-            } else {
-                // Alert si no se ha seleccionado ningún item
-                Alert alert2 = new Alert(Alert.AlertType.ERROR);
-                alert2.setTitle("Error");
-                alert2.setHeaderText("No se ha seleccionado ningun item.");
-                alert2.setContentText("Selecciona sobre un item para borrarlo.");
-                alert2.showAndWait();
             }
+        } else {
+            // Alert si no se ha seleccionado ningún item
+            Alert alert2 = new Alert(Alert.AlertType.ERROR);
+            alert2.setTitle("Error");
+            alert2.setHeaderText("No se ha seleccionado ningun item.");
+            alert2.setContentText("Selecciona sobre un item para borrarlo.");
+            alert2.showAndWait();
         }
     }
+
 
     /**
      * @param actionEvent El método cancelar cancela la edición y vuelve a la ventana principal.
@@ -150,15 +155,19 @@ public class EditPedidoController implements Initializable {
         List<Item> itemsTabla = tablaEditItem.getItems();
 
         // Actualizar la base de datos con los elementos de la tabla
-        if (itemsTabla!=null){
+        if (itemsTabla != null) {
             for (Item item : itemsTabla) {
                 itemDAO.update(item);
+                actualizarTotalPedido();
             }
-            //Alert para confirmar que se han guardado los items.
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Productos guardados correctamente");
-            alert.show();
+
         }
+
+        //Alert para confirmar que se han guardado los items.
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Productos guardados correctamente");
+        alert.show();
+
         try {
             App.changeScene("main-view.fxml", "Ventana de pedidos");
         } catch (IOException e) {
@@ -187,10 +196,10 @@ public class EditPedidoController implements Initializable {
         //Creación del alert.
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información de la ventana de editar");
-        alert.setHeaderText("¡Hola " +  Session.getCurrentUser().getNombre() + "!" );
+        alert.setHeaderText("¡Hola " + Session.getCurrentUser().getNombre() + "!");
         alert.setContentText("En esta ventana puedes editar los items de tu pedido." + "\n" +
-                "Haz click sobre un item y cuando este en azul pulsa sobre el botón borrar para eliminarlo."+"\n"+
-                "Para añadir un item nuevo selecciona el producto y la cantidad, y pulsa en añadir."+"\n"+
+                "Haz click sobre un item y cuando este en azul pulsa sobre el botón borrar para eliminarlo." + "\n" +
+                "Para añadir un item nuevo selecciona el producto y la cantidad, y pulsa en añadir." + "\n" +
                 "Cuando en la tabla esten todos los productos que deseas en tu pedido, pulsa en guardar.");
         alert.getDialogPane().setPrefSize(400, 250);
         alert.showAndWait();

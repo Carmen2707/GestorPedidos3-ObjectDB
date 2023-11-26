@@ -18,7 +18,7 @@ public class PedidoDAO implements DAO<Pedido> {
 
     @Override
     public ArrayList<Pedido> getAll() {
-   return null;
+        return null;
     }
 
     /**
@@ -84,16 +84,19 @@ public class PedidoDAO implements DAO<Pedido> {
     public double calcularTotalPedido(List<Item> items) {
         double totalPedido = 0.0;
         for (Item item : items) {
-            String precioConEuro = item.getProducto().getPrecio();
-            String precioSinEuro = precioConEuro.replace("€", "");
-            double precio = Double.parseDouble(precioSinEuro);
-            totalPedido += item.getCantidad() * precio;
+            if (item != null && item.getProducto() != null) {
+                String precioConEuro = item.getProducto().getPrecio();
+                String precioSinEuro = precioConEuro.replace("€", "");
+                double precio = Double.parseDouble(precioSinEuro);
+                totalPedido += item.getCantidad() * precio;
+            }
         }
         return totalPedido;
     }
 
     /**
      * Actualiza un pedido de la base de datos.
+     *
      * @param data el pedido con los nuevos datos.
      */
     @Override
@@ -110,6 +113,7 @@ public class PedidoDAO implements DAO<Pedido> {
 
     /**
      * Elimina el pedido seleccionado de la base de datos.
+     *
      * @param data el pedido a eliminar.
      */
     @Override

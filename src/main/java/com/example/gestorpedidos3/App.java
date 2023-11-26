@@ -17,6 +17,7 @@ public class App extends Application {
 
     /**
      * Método principal que inicia la aplicación.
+     *
      * @param stage el Stage principal de la aplicación.
      * @throws IOException si ocurre un error de entrada/salida al cargar el archivo FXML.
      */
@@ -32,7 +33,8 @@ public class App extends Application {
 
     /**
      * Cambia la escena actual por una nueva especificada por un archivo FXML y un título.
-     * @param fxml el nombre del archivo FXML de la nueva escena.
+     *
+     * @param fxml  el nombre del archivo FXML de la nueva escena.
      * @param title el título de la nueva escena.
      * @throws IOException si ocurre un error de entrada/salida al cargar el archivo FXML.
      */
@@ -46,6 +48,7 @@ public class App extends Application {
 
     /**
      * Método principal que inicia la aplicación.
+     *
      * @param args argumentos pasados a la aplicación.
      */
     public static void main(String[] args) {

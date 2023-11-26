@@ -5,7 +5,6 @@ import com.example.gestorpedidos3.domain.DAO;
 import com.example.gestorpedidos3.domain.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
@@ -16,7 +15,7 @@ public class ItemDAO implements DAO<Item> {
 
     @Override
     public ArrayList<Item> getAll() {
-  return null;
+        return null;
     }
 
     /**
@@ -63,6 +62,7 @@ public class ItemDAO implements DAO<Item> {
 
     /**
      * Actualiza un ítem en la base de datos.
+     *
      * @param data el ítem con los nuevos datos.
      */
     @Override
@@ -80,6 +80,7 @@ public class ItemDAO implements DAO<Item> {
 
     /**
      * Elimina el ítem seleccionado de la base de datos.
+     *
      * @param data el ítem a eliminar.
      */
     @Override
