@@ -59,7 +59,7 @@ public class MainViewController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Información de la ventana de pedidos");
         alert.setHeaderText("¡Hola " +  Session.getCurrentUser().getNombre() + "!" + "\n" + "El correo con el que te registraste es: " +  Session.getCurrentUser().getEmail());
-        alert.setContentText("En esta ventana puedes ver tus pedidos realizados." + "\n" + "¡Haz click sobre un pedido y cuando este en azul pulsa sobre el botón que quieras!");
+        alert.setContentText("En esta ventana puedes ver tus pedidos realizados." + "\n" + "¡Haz click sobre un pedido y cuando este en azul pulsa sobre el botón de la acción que quieras realizar!");
         alert.getDialogPane().setPrefSize(400, 250);
         alert.showAndWait();
 

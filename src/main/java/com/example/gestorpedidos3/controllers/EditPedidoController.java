@@ -66,7 +66,7 @@ public class EditPedidoController implements Initializable {
             return new SimpleStringProperty(fila.getValue().getCantidad() + "");
         });
         cProducto.setCellValueFactory((fila) -> {
-            return new SimpleStringProperty(fila.getValue().getProducto().getNombre());
+            return new SimpleStringProperty(fila.getValue().getProducto()+"");
         });
 
         spinnerCantidad.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 0, 1));

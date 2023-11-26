@@ -6,18 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2c604b6e-0047-4621-86df-d1df24153038" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/HibernateUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/ItemDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/ProductoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/producto/ProductoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +104,7 @@
       <workItem from="1700931691750" duration="1029000" />
       <workItem from="1700932965591" duration="21000" />
       <workItem from="1700934181645" duration="16271000" />
-      <workItem from="1701001418432" duration="6085000" />
+      <workItem from="1701001418432" duration="8970000" />
     </task>
     <task id="LOCAL-00001" summary="h">
       <option name="closed" value="true" />
@@ -156,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700954095400</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="commit final">
+      <option name="closed" value="true" />
+      <created>1701007787731</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1701007787732</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +163,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="h" />
     <MESSAGE value="commit1" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit1" />
+    <MESSAGE value="commit final" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit final" />
   </component>
 </project>
