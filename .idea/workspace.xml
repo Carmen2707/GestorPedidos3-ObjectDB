@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c604b6e-0047-4621-86df-d1df24153038" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" afterDir="false" />
-    </list>
+    <list default="true" id="2c604b6e-0047-4621-86df-d1df24153038" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +100,7 @@
       <workItem from="1700931691750" duration="1029000" />
       <workItem from="1700932965591" duration="21000" />
       <workItem from="1700934181645" duration="16271000" />
-      <workItem from="1701001418432" duration="8970000" />
+      <workItem from="1701001418432" duration="9032000" />
     </task>
     <task id="LOCAL-00001" summary="h">
       <option name="closed" value="true" />
@@ -154,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701007787732</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="commit final">
+      <option name="closed" value="true" />
+      <created>1701010514897</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701010514897</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
