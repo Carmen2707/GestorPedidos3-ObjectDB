@@ -8,6 +8,8 @@ module com.example.gestorpedidos3 {
     requires org.hibernate.orm.core;
     requires java.naming;
     requires java.sql;
+    requires jasperreports;
+    requires javafx.swing;
 
     opens com.example.gestorpedidos3 to javafx.fxml;
     exports com.example.gestorpedidos3;

@@ -5,86 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c604b6e-0047-4621-86df-d1df24153038" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/InformePedido.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/img/descargas.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f27dd98c-f063-492d-91b2-6615dfced9c2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f27dd98c-f063-492d-91b2-6615dfced9c2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f27dd98c-f063-492d-91b2-6615dfced9c2/storage_v2/_src_/schema/bd.QgwAAA.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f27dd98c-f063-492d-91b2-6615dfced9c2/storage_v2/_src_/schema/bd.QgwAAA.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/App.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/App.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/Session.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/Session.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/EditPedidoController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/EditPedidoController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/ItemsViewController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/ItemsViewController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/LoginController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/LoginController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/MainViewController.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/MainViewController.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/controllers/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/DAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/DAO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/HibernateUtil.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/HibernateUtil.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/Item.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/Item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/ItemDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/ItemDAO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/item/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/Pedido.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/Pedido.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/PedidoDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/PedidoDAO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/pedido/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/Producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/Producto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/ProductoDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/ProductoDAO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/producto/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/Usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/Usuario.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/domain/usuario/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/com/example/gestorpedidos3/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/module-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/com.example.gestorpedidos3/module-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/copy.svg" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/copy.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-13.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/jquery.md" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/legal/jquery.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/legal/jqueryUI.md" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/legal/jqueryUI.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/member-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/member-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/module-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/module-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/package-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/package-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/search-page.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/search-page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/serialized-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/stylesheet.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/tag-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/tag-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaDoc/type-search-index.js" beforeDir="false" afterPath="$PROJECT_DIR$/JavaDoc/type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/EditPedidoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/ItemsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/ItemsViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/controllers/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/DAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/item/ItemDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/pedido/PedidoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gestorpedidos3/domain/usuario/UsuarioDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/edit-pedido.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/edit-pedido.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/items-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/items-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/login-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/login-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gestorpedidos3/views/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +59,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -140,6 +71,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\karme\IdeaProjects\GestorPedidos3" />
+      <recent name="C:\Users\karme\IdeaProjects\GestorPedidos3\src\main\resources\com\example\gestorpedidos3\img" />
       <recent name="C:\Users\karme\IdeaProjects\GestorPedidos3\src\main\java\com\example\gestorpedidos3\domain" />
       <recent name="C:\Users\karme\IdeaProjects\GestorPedidos3\src\main\resources\com\example\gestorpedidos3" />
       <recent name="C:\Users\karme\IdeaProjects\GestorPedidos3\src\main\java\com\example\gestorpedidos3" />
@@ -182,7 +115,30 @@
       <workItem from="1700932965591" duration="21000" />
       <workItem from="1700934181645" duration="16271000" />
       <workItem from="1701001418432" duration="9032000" />
-      <workItem from="1701010698328" duration="7563000" />
+      <workItem from="1701010698328" duration="7818000" />
+      <workItem from="1701020478067" duration="127000" />
+      <workItem from="1701038038604" duration="2707000" />
+      <workItem from="1701273634744" duration="309000" />
+      <workItem from="1701278948030" duration="226000" />
+      <workItem from="1701366030839" duration="551000" />
+      <workItem from="1701367495790" duration="5240000" />
+      <workItem from="1701703887532" duration="1199000" />
+      <workItem from="1701814404439" duration="36000" />
+      <workItem from="1701893042382" duration="2133000" />
+      <workItem from="1701895491759" duration="1033000" />
+      <workItem from="1701897588580" duration="429000" />
+      <workItem from="1701900987781" duration="28000" />
+      <workItem from="1702055200668" duration="2895000" />
+      <workItem from="1702160948605" duration="1059000" />
+      <workItem from="1702168036438" duration="504000" />
+      <workItem from="1702289593734" duration="3267000" />
+      <workItem from="1702903020182" duration="2586000" />
+      <workItem from="1702914133983" duration="94000" />
+      <workItem from="1705944095474" duration="7851000" />
+      <workItem from="1706032044278" duration="5350000" />
+      <workItem from="1706048132292" duration="1715000" />
+      <workItem from="1706081521506" duration="1433000" />
+      <workItem from="1706118941634" duration="4158000" />
     </task>
     <task id="LOCAL-00001" summary="h">
       <option name="closed" value="true" />
@@ -248,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701010807705</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="commit final">
+      <option name="closed" value="true" />
+      <created>1701019826713</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701019826714</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
