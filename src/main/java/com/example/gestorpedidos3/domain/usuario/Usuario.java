@@ -2,7 +2,14 @@ package com.example.gestorpedidos3.domain.usuario;
 
 
 import com.example.gestorpedidos3.domain.pedido.Pedido;
-import jakarta.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -13,28 +20,35 @@ import java.util.List;
  */
 @Data
 @Entity
-@Table(name = "usuarios")
 public class Usuario {
+
+    public Usuario(String nombre, String contraseña, String email, List<Pedido> pedidos) {
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+        this.email = email;
+        this.pedidos = pedidos;
+    }
+
     /**
      * Id del usuario.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     /**
      * Nombre del usuario.
      */
-    @Column(name = "nombre")
+
     private String nombre;
     /**
      * Contraseña del usuario.
      */
-    @Column(name = "contraseña")
+
     private String contraseña;
     /**
      * Email del usuario.
      */
-    @Column(name = "email")
+
     private String email;
 
     /**

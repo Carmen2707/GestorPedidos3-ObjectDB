@@ -1,11 +1,11 @@
 module com.example.gestorpedidos3 {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires javax.persistence;
     requires lombok;
 
-    requires jakarta.persistence;
-    requires org.hibernate.orm.core;
+
+
     requires java.naming;
     requires java.sql;
     requires jasperreports;

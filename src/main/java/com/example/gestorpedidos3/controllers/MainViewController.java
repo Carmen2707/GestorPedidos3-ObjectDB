@@ -2,6 +2,7 @@ package com.example.gestorpedidos3.controllers;
 
 import com.example.gestorpedidos3.App;
 import com.example.gestorpedidos3.Session;
+import com.example.gestorpedidos3.domain.item.ItemDAO;
 import com.example.gestorpedidos3.domain.pedido.Pedido;
 import com.example.gestorpedidos3.domain.pedido.PedidoDAO;
 import com.example.gestorpedidos3.domain.usuario.UsuarioDAO;
@@ -12,6 +13,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -121,11 +123,18 @@ public class MainViewController implements Initializable {
 
         PedidoDAO pedidoDAO = new PedidoDAO();
         String ultimoCodigo = pedidoDAO.getUltimoCodigo();
-        int ultimoNum = Integer.parseInt(ultimoCodigo.substring(4));
-        int nuevoNum = ultimoNum + 1;
-        String nuevoCodigo = "PED-" + String.format("%03d", nuevoNum);
-        //añadimos su codigo de pedido incrementado
-        pedidoNuevo.setCódigo(nuevoCodigo);
+        if (ultimoCodigo != null){
+            int ultimoNum = Integer.parseInt(ultimoCodigo.substring(4));
+            int nuevoNum = ultimoNum + 1;
+            String nuevoCodigo = "PED-" + String.format("%03d", nuevoNum);
+            //añadimos su codigo de pedido incrementado
+            pedidoNuevo.setCódigo(nuevoCodigo);
+        }else{
+            pedidoNuevo.setCódigo("PED-001");
+            System.out.println("codigo null");
+        }
+
+
 
         //añadimos el usuario que ha creado ese pedido
         pedidoNuevo.setUsuario(Session.getCurrentUser());
@@ -192,6 +201,8 @@ public class MainViewController implements Initializable {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
+            ItemDAO itemDAO = new ItemDAO();
+            System.out.println(itemDAO.getAll());
         } else {
             // Alert si no se ha seleccionado ningún pedido
             Alert alert2 = new Alert(Alert.AlertType.ERROR);

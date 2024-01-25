@@ -3,7 +3,14 @@ package com.example.gestorpedidos3.domain.pedido;
 
 import com.example.gestorpedidos3.domain.item.Item;
 import com.example.gestorpedidos3.domain.usuario.Usuario;
-import jakarta.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,23 +23,23 @@ import java.util.List;
  */
 @Data
 @Entity
-@Table(name = "pedido")
+
 public class Pedido implements Serializable {
     /**
      * Id del pedido.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     /**
      * Código del pedido.
      */
-    @Column(name = "código")
+
     private String código;
     /**
      * Fecha en la que se realizo el pedido.
      */
-    @Column(name = "fecha")
+
     private String fecha;
 
     /**
@@ -51,7 +58,7 @@ public class Pedido implements Serializable {
     /**
      * Precio total del pedido.
      */
-    @Column(name = "total")
+
     private Double total;
 
 

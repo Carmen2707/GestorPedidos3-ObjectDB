@@ -3,7 +3,15 @@ package com.example.gestorpedidos3.domain.item;
 
 import com.example.gestorpedidos3.domain.pedido.Pedido;
 import com.example.gestorpedidos3.domain.producto.Producto;
-import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -13,13 +21,13 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "items")
+
 public class Item implements Serializable {
     /**
      * Id del item.
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+@Id
+    @GeneratedValue
     private Long id;
 
     /**
@@ -32,7 +40,7 @@ public class Item implements Serializable {
     /**
      * Cantidad de items en el pedido.
      */
-    @Column(name = "cantidad")
+
     private int cantidad;
 
     /**

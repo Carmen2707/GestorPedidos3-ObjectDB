@@ -3,6 +3,8 @@ package com.example.gestorpedidos3.controllers;
 import com.example.gestorpedidos3.App;
 import com.example.gestorpedidos3.Session;
 import com.example.gestorpedidos3.domain.item.Item;
+import com.example.gestorpedidos3.domain.item.ItemDAO;
+import com.example.gestorpedidos3.domain.pedido.Pedido;
 import com.example.gestorpedidos3.domain.pedido.PedidoDAO;
 import com.example.gestorpedidos3.domain.producto.Producto;
 import javafx.application.Platform;
@@ -36,6 +38,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -147,9 +150,23 @@ public class ItemsViewController implements Initializable {
         //llena la tabla de items
         Session.setCurrentPedido((new PedidoDAO()).get(Session.getCurrentPedido().getId()));
         tablaItems.getItems().addAll(Session.getCurrentPedido().getItems());
-
+        System.out.println(Session.getCurrentPedido().getItems());
+        cargarItemsPedidoActual();
     }
 
+    public void cargarItemsPedidoActual() {
+        // Obtiene el pedido actual desde la sesión
+        Pedido pedidoActual = Session.getCurrentPedido();
+
+        if (pedidoActual != null) {
+            // Obtiene los ítems del pedido actual
+            ItemDAO itemDAO = new ItemDAO();
+            List<Item> itemsPedido = itemDAO.getItemsByPedido(pedidoActual.getId());
+
+            // Llena la tabla con los ítems
+            tablaItems.getItems().setAll(itemsPedido);
+        }
+    }
     @javafx.fxml.FXML
     public void descargar(ActionEvent actionEvent)  throws SQLException, JRException {
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd", "root","");

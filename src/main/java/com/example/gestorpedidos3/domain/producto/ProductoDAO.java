@@ -2,11 +2,14 @@ package com.example.gestorpedidos3.domain.producto;
 
 
 import com.example.gestorpedidos3.domain.DAO;
-import com.example.gestorpedidos3.domain.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
+import com.example.gestorpedidos3.domain.ObjectDBUtil;
+import com.example.gestorpedidos3.domain.usuario.Usuario;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * La clase ProductoDAO implementa la interfaz DAO para realizar varias operaciones.
@@ -16,14 +19,16 @@ public class ProductoDAO implements DAO<Producto> {
      * @return Devuelve una lista de todos los productos almacenados en la base de datos.
      */
     @Override
-    public ArrayList<Producto> getAll() {
-        var salida = new ArrayList<Producto>(0);
+    public List<Producto> getAll() {
+        List<Producto> salida;
 
-        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Producto> q = s.createQuery("from Producto ", Producto.class);
-            salida = (ArrayList<Producto>) q.getResultList();
+        EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
+        try{
+            TypedQuery<Producto> query = em.createQuery("select p from Producto p", Producto.class);
+            salida = query.getResultList();
+        } finally {
+            em.close();
         }
-
         return salida;
     }
 
@@ -37,15 +42,28 @@ public class ProductoDAO implements DAO<Producto> {
         return null;
     }
 
-
     @Override
-    public void update(Producto data) {
-
+    public Producto update(Producto data) {
+        return null;
     }
 
-    @Override
-    public void delete(Producto data) {
 
+    @Override
+    public Boolean delete(Producto data) {
+
+        return null;
+    }
+    public void saveAll(List<Producto> productos) {
+        EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
+        try{
+            em.getTransaction().begin();
+            for(Producto p : productos){
+                em.persist(p);
+            }
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
     }
 
 }

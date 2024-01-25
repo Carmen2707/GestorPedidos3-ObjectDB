@@ -1,7 +1,12 @@
 package com.example.gestorpedidos3.domain.producto;
 
-import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import java.io.Serializable;
 
@@ -10,28 +15,34 @@ import java.io.Serializable;
  */
 @Data
 @Entity
-@Table(name = "producto")
+
 public class Producto implements Serializable {
+    public Producto(String nombre, String precio, int cantidad_disponible) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad_disponible = cantidad_disponible;
+    }
+
     /**
      * Id del producto.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
     /**
      * Nombre del producto.
      */
-    @Column(name = "nombre")
+
     private String nombre;
     /**
      * Precio del producto.
      */
-    @Column(name = "precio")
+
     private String precio;
     /**
      * Cantidad disponible del producto.
      */
-    @Column(name = "cantidad_disponible")
+
     private int cantidad_disponible;
 
     /**

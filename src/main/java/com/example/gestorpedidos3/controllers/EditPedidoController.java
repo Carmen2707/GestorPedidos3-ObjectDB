@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -91,6 +92,8 @@ public class EditPedidoController implements Initializable {
 
         //guardamos el item en la base de datos
         Session.setCurrentItem((new ItemDAO()).save(itemNuevo));
+        ProductoDAO productoDAO = new ProductoDAO();
+        System.out.println(productoDAO.getAll());
 
 
     }
@@ -153,27 +156,32 @@ public class EditPedidoController implements Initializable {
         ItemDAO itemDAO = new ItemDAO();
         // Obtener los elementos de la tabla
         List<Item> itemsTabla = tablaEditItem.getItems();
-
+// Log de información antes de la actualización
+        System.out.println("Antes de la actualización: " + itemsTabla);
         // Actualizar la base de datos con los elementos de la tabla
         if (itemsTabla != null) {
             for (Item item : itemsTabla) {
                 itemDAO.update(item);
-                actualizarTotalPedido();
+
             }
 
+            // Actualizar la lista de items en el objeto Pedido almacenado en la sesión
+            Pedido pedidoActual = Session.getCurrentPedido();
+            pedidoActual.setItems(new ArrayList<>(itemsTabla)); // Crear una nueva instancia para evitar problemas de referencia
+            actualizarTotalPedido();
+// Log de información después de la actualización
+            System.out.println("Después de la actualización: " + itemsTabla);
+            //Alert para confirmar que se han guardado los items.
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Productos guardados correctamente");
+            alert.show();
+
+            try {
+                App.changeScene("main-view.fxml", "Ventana de pedidos");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-
-        //Alert para confirmar que se han guardado los items.
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setContentText("Productos guardados correctamente");
-        alert.show();
-
-        try {
-            App.changeScene("main-view.fxml", "Ventana de pedidos");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
     }
 
     /**

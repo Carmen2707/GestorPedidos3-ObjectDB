@@ -2,11 +2,16 @@ package com.example.gestorpedidos3.domain.usuario;
 
 
 import com.example.gestorpedidos3.domain.DAO;
-import com.example.gestorpedidos3.domain.HibernateUtil;
-import org.hibernate.Session;
-import org.hibernate.query.Query;
+import com.example.gestorpedidos3.domain.ObjectDBUtil;
+import com.example.gestorpedidos3.domain.producto.Producto;
+import com.example.gestorpedidos3.domain.usuario.Usuario;
+import javax.persistence.EntityManager;
+
+import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * La clase UsuarioDAO implementa la interfaz DAO para realizar varias operaciones.
@@ -21,26 +26,40 @@ public class UsuarioDAO implements DAO<Usuario> {
      */
     public Usuario validateUser(String nombre, String contraseña) {
         Usuario result = null;
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            Query<Usuario> query = session.createQuery("from Usuario where nombre=:u and contraseña=:p", Usuario.class);
-            query.setParameter("u", nombre);
-            query.setParameter("p", contraseña);
+        List<Usuario> lista = new ArrayList<>();
+        EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
+try {
 
-            try {
-                result = query.getSingleResult();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-            }
-        }
+    TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.nombre = :u AND u.contraseña = :p", Usuario.class);
+    query.setParameter("u", nombre);
+    query.setParameter("p", contraseña);
+    lista = query.getResultList();
+    try {
+        result = lista.get(0);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
 
+} catch (Exception e) {
+    throw new RuntimeException(e);
+}
 
         return result;
     }
 
 
     @Override
-    public ArrayList<Usuario> getAll() {
-        return null;
+    public List<Usuario> getAll() {
+        List<Usuario> salida;
+
+        EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
+        try{
+            TypedQuery<Usuario> query = em.createQuery("select u from Usuario u", Usuario.class);
+            salida = query.getResultList();
+        } finally {
+            em.close();
+        }
+        return salida;
     }
 
     /**
@@ -51,10 +70,12 @@ public class UsuarioDAO implements DAO<Usuario> {
      */
     @Override
     public Usuario get(Long id) {
-        var salida = new Usuario();
-
-        try (Session s = HibernateUtil.getSessionFactory().openSession()) {
-            salida = s.get(Usuario.class, id);
+        Usuario salida = null;
+        EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
+        try {
+            salida = em.find(Usuario.class, id);
+        } finally {
+            em.close();
         }
         return salida;
     }
@@ -65,14 +86,29 @@ public class UsuarioDAO implements DAO<Usuario> {
         return null;
     }
 
-
     @Override
-    public void update(Usuario data) {
-
+    public Usuario update(Usuario data) {
+        return null;
     }
 
-    @Override
-    public void delete(Usuario data) {
 
+    public void saveAll(List<Usuario> usuarios) {
+        EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
+        try{
+            em.getTransaction().begin();
+            for(Usuario u : usuarios){
+                em.persist(u);
+            }
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+    }
+
+
+    @Override
+    public Boolean delete(Usuario data) {
+
+        return null;
     }
 }

@@ -1,6 +1,10 @@
 package com.example.gestorpedidos3.domain;
 
+import com.example.gestorpedidos3.domain.item.Item;
+import com.example.gestorpedidos3.domain.pedido.Pedido;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * La interfaz DAO define las operaciones básicas para acceder y manipular entidades en la base de datos.
@@ -11,7 +15,7 @@ public interface DAO<T> {
     /**
      * @return devuelve una lista que contiene todos los elementos del tipo especificado en la base de datos.
      */
-    public ArrayList<T> getAll();
+    public List<T> getAll();
 
     /**
      * @param id el ID del elemento que se quiere obtener.
@@ -31,14 +35,19 @@ public interface DAO<T> {
      * Actualiza un elemento del tipo especificado en la base de datos.
      *
      * @param data es el elemento que se quiere actualizar
+     * @return
      */
-    public void update(T data);
+
+
+    T update(T data);
+
 
     /**
      * Elimina un elemento del tipo especificado de la base de datos.
      *
      * @param data es el elemento que se quiere eliminar
+     * @return
      */
-    public void delete(T data);
+    public Boolean delete(T data);
 
 }
