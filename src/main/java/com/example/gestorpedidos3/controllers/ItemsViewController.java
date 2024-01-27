@@ -146,7 +146,11 @@ public class ItemsViewController implements Initializable {
     }
 
 
-
+    /**
+     * @param actionEvent Evento para mostrar y descargar el informe Jasper del resumen del pedido.
+     * @throws SQLException
+     * @throws JRException
+     */
     @javafx.fxml.FXML
     public void descargar(ActionEvent actionEvent) throws SQLException, JRException {
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd", "root", "");
