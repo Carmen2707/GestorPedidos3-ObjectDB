@@ -3,12 +3,9 @@ package com.example.gestorpedidos3.domain.producto;
 
 import com.example.gestorpedidos3.domain.DAO;
 import com.example.gestorpedidos3.domain.ObjectDBUtil;
-import com.example.gestorpedidos3.domain.usuario.Usuario;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,7 +20,7 @@ public class ProductoDAO implements DAO<Producto> {
         List<Producto> salida;
 
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
-        try{
+        try {
             TypedQuery<Producto> query = em.createQuery("select p from Producto p", Producto.class);
             salida = query.getResultList();
         } finally {
@@ -53,11 +50,12 @@ public class ProductoDAO implements DAO<Producto> {
 
         return null;
     }
+
     public void saveAll(List<Producto> productos) {
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
-        try{
+        try {
             em.getTransaction().begin();
-            for(Producto p : productos){
+            for (Producto p : productos) {
                 em.persist(p);
             }
             em.getTransaction().commit();

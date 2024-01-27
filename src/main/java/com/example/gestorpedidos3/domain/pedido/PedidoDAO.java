@@ -4,12 +4,11 @@ package com.example.gestorpedidos3.domain.pedido;
 import com.example.gestorpedidos3.domain.DAO;
 import com.example.gestorpedidos3.domain.ObjectDBUtil;
 import com.example.gestorpedidos3.domain.item.Item;
+
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 
 /**
@@ -29,9 +28,9 @@ public class PedidoDAO implements DAO<Pedido> {
     @Override
     public Pedido get(Long id) {
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
-        Pedido p=null;
-        try{
-            p = em.find(Pedido.class,id);
+        Pedido p = null;
+        try {
+            p = em.find(Pedido.class, id);
         } finally {
             em.close();
         }
@@ -45,7 +44,7 @@ public class PedidoDAO implements DAO<Pedido> {
     @Override
     public Pedido save(Pedido data) {
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
-        try{
+        try {
             em.getTransaction().begin();
             em.persist(data);
             em.flush();
@@ -64,8 +63,8 @@ public class PedidoDAO implements DAO<Pedido> {
     public String getUltimoCodigo() {
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
 
-            TypedQuery<String> query = em.createQuery("select max(p.código) from Pedido p", String.class);
-            return query.getSingleResult();
+        TypedQuery<String> query = em.createQuery("select max(p.código) from Pedido p", String.class);
+        return query.getSingleResult();
     }
 
     /**
@@ -99,7 +98,7 @@ public class PedidoDAO implements DAO<Pedido> {
             data = em.merge(data);
             em.getTransaction().commit();
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
 
             System.out.println(ex.getMessage());
         } finally {
@@ -116,13 +115,13 @@ public class PedidoDAO implements DAO<Pedido> {
      */
     @Override
     public Boolean delete(Pedido data) {
-        Boolean salida= false;
+        Boolean salida = false;
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
         try {
             em.getTransaction().begin();
-            Pedido p = em.find(Pedido.class,data.getId());
-            salida = (p!=null);
-            if(salida) {
+            Pedido p = em.find(Pedido.class, data.getId());
+            salida = (p != null);
+            if (salida) {
                 em.remove(p);
             }
             em.getTransaction().commit();

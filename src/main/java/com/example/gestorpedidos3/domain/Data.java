@@ -21,10 +21,10 @@ public class Data {
         listaProductos.add(new Producto("Auriculares Inalámbricos", "79€", 100));
         listaProductos.add(new Producto("Televisor LED", "599€", 20));
         listaProductos.add(new Producto("Tableta", "199€", 40));
-        listaProductos.add(new Producto("Altavoz", "19€",50));
+        listaProductos.add(new Producto("Altavoz", "19€", 50));
 
         return listaProductos;
 
-        }
+    }
 
 }

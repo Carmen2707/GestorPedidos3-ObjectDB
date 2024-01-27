@@ -3,13 +3,9 @@ package com.example.gestorpedidos3.domain.usuario;
 
 import com.example.gestorpedidos3.domain.DAO;
 import com.example.gestorpedidos3.domain.ObjectDBUtil;
-import com.example.gestorpedidos3.domain.producto.Producto;
-import com.example.gestorpedidos3.domain.usuario.Usuario;
+
 import javax.persistence.EntityManager;
-
-import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,21 +24,21 @@ public class UsuarioDAO implements DAO<Usuario> {
         Usuario result = null;
         List<Usuario> lista = new ArrayList<>();
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
-try {
+        try {
 
-    TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.nombre = :u AND u.contraseña = :p", Usuario.class);
-    query.setParameter("u", nombre);
-    query.setParameter("p", contraseña);
-    lista = query.getResultList();
-    try {
-        result = lista.get(0);
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
+            TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.nombre = :u AND u.contraseña = :p", Usuario.class);
+            query.setParameter("u", nombre);
+            query.setParameter("p", contraseña);
+            lista = query.getResultList();
+            try {
+                result = lista.get(0);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-} catch (Exception e) {
-    throw new RuntimeException(e);
-}
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         return result;
     }
@@ -53,7 +49,7 @@ try {
         List<Usuario> salida;
 
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
-        try{
+        try {
             TypedQuery<Usuario> query = em.createQuery("select u from Usuario u", Usuario.class);
             salida = query.getResultList();
         } finally {
@@ -94,9 +90,9 @@ try {
 
     public void saveAll(List<Usuario> usuarios) {
         EntityManager em = ObjectDBUtil.getEntityManagerFactory().createEntityManager();
-        try{
+        try {
             em.getTransaction().begin();
-            for(Usuario u : usuarios){
+            for (Usuario u : usuarios) {
                 em.persist(u);
             }
             em.getTransaction().commit();

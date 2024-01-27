@@ -5,7 +5,6 @@ module com.example.gestorpedidos3 {
     requires lombok;
 
 
-
     requires java.naming;
     requires java.sql;
     requires jasperreports;

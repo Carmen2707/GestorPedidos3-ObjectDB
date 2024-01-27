@@ -13,7 +13,6 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -123,17 +122,16 @@ public class MainViewController implements Initializable {
 
         PedidoDAO pedidoDAO = new PedidoDAO();
         String ultimoCodigo = pedidoDAO.getUltimoCodigo();
-        if (ultimoCodigo != null){
+        if (ultimoCodigo != null) {
             int ultimoNum = Integer.parseInt(ultimoCodigo.substring(4));
             int nuevoNum = ultimoNum + 1;
             String nuevoCodigo = "PED-" + String.format("%03d", nuevoNum);
             //añadimos su codigo de pedido incrementado
             pedidoNuevo.setCódigo(nuevoCodigo);
-        }else{
+        } else {
             pedidoNuevo.setCódigo("PED-001");
             System.out.println("codigo null");
         }
-
 
 
         //añadimos el usuario que ha creado ese pedido

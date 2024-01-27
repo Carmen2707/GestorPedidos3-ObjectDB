@@ -29,28 +29,26 @@ public class App extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        //Generar los usuarios y los productos y meterlos en la Base de Datos
-        //Cuando vuelvas a iniciar la app, si ya hay usuarios y productos no va a hacer nada y si no hay va a hacer lo de arriba.
-       try{
-           ProductoDAO productoDAO = new ProductoDAO();
-           List<Producto> productos=productoDAO.getAll();
-           if (productos.isEmpty()){
-               productos=Data.generarProductos();
-               productoDAO.saveAll(productos);
-           }
+        try {
+            ProductoDAO productoDAO = new ProductoDAO();
+            List<Producto> productos = productoDAO.getAll();
+            if (productos.isEmpty()) {
+                productos = Data.generarProductos();
+                productoDAO.saveAll(productos);
+            }
 
-           UsuarioDAO usuarioDAO = new UsuarioDAO();
-           List<Usuario> usuarios=usuarioDAO.getAll();
-           if (usuarios.isEmpty()){
-               usuarios=Data.generarUsuarios();
-               usuarioDAO.saveAll(usuarios);
-           }
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            List<Usuario> usuarios = usuarioDAO.getAll();
+            if (usuarios.isEmpty()) {
+                usuarios = Data.generarUsuarios();
+                usuarioDAO.saveAll(usuarios);
+            }
 
-       } catch (Exception e) {
-           throw new RuntimeException(e);
-       }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
-        this.stage = stage;
+        App.stage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("views/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 700);
         stage.setTitle("Login");

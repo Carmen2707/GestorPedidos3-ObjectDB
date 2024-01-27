@@ -3,16 +3,9 @@ package com.example.gestorpedidos3.domain.pedido;
 
 import com.example.gestorpedidos3.domain.item.Item;
 import com.example.gestorpedidos3.domain.usuario.Usuario;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.JoinColumn;
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
 import lombok.Data;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;

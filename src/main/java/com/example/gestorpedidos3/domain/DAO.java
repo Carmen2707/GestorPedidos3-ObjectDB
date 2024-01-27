@@ -1,9 +1,5 @@
 package com.example.gestorpedidos3.domain;
 
-import com.example.gestorpedidos3.domain.item.Item;
-import com.example.gestorpedidos3.domain.pedido.Pedido;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,13 +11,13 @@ public interface DAO<T> {
     /**
      * @return devuelve una lista que contiene todos los elementos del tipo especificado en la base de datos.
      */
-    public List<T> getAll();
+    List<T> getAll();
 
     /**
      * @param id el ID del elemento que se quiere obtener.
      * @return devuelve el elemento del tipo especificado con el ID especificado.
      */
-    public T get(Long id);
+    T get(Long id);
 
     /**
      * Guarda un elemento del tipo especificado en la base de datos.
@@ -29,7 +25,7 @@ public interface DAO<T> {
      * @param data es el elemento que se quiere guardar.
      * @return devuelve el elemento guardado.
      */
-    public T save(T data);
+    T save(T data);
 
     /**
      * Actualiza un elemento del tipo especificado en la base de datos.
@@ -48,6 +44,6 @@ public interface DAO<T> {
      * @param data es el elemento que se quiere eliminar
      * @return
      */
-    public Boolean delete(T data);
+    Boolean delete(T data);
 
 }

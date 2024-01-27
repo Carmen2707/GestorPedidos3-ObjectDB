@@ -7,19 +7,14 @@ import com.example.gestorpedidos3.domain.item.ItemDAO;
 import com.example.gestorpedidos3.domain.pedido.Pedido;
 import com.example.gestorpedidos3.domain.pedido.PedidoDAO;
 import com.example.gestorpedidos3.domain.producto.Producto;
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -27,11 +22,8 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
-import net.sf.jasperreports.swing.JRViewer;
 import net.sf.jasperreports.view.JasperViewer;
-import javafx.embed.swing.SwingNode;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -150,37 +142,25 @@ public class ItemsViewController implements Initializable {
         //llena la tabla de items
         Session.setCurrentPedido((new PedidoDAO()).get(Session.getCurrentPedido().getId()));
         tablaItems.getItems().addAll(Session.getCurrentPedido().getItems());
-        System.out.println(Session.getCurrentPedido().getItems());
-        cargarItemsPedidoActual();
+
     }
 
-    public void cargarItemsPedidoActual() {
-        // Obtiene el pedido actual desde la sesión
-        Pedido pedidoActual = Session.getCurrentPedido();
 
-        if (pedidoActual != null) {
-            // Obtiene los ítems del pedido actual
-            ItemDAO itemDAO = new ItemDAO();
-            List<Item> itemsPedido = itemDAO.getItemsByPedido(pedidoActual.getId());
 
-            // Llena la tabla con los ítems
-            tablaItems.getItems().setAll(itemsPedido);
-        }
-    }
     @javafx.fxml.FXML
-    public void descargar(ActionEvent actionEvent)  throws SQLException, JRException {
-        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd", "root","");
+    public void descargar(ActionEvent actionEvent) throws SQLException, JRException {
+        Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd", "root", "");
 
         HashMap<String, Object> hashMap = new HashMap<>();
-        String código= Session.getCurrentPedido().getCódigo();
+        String código = Session.getCurrentPedido().getCódigo();
         String nombre_empresa = "TECNO FUTURE";
 
 
         hashMap.put("código", código);
         hashMap.put("nombre_empresa", nombre_empresa);
-        JasperPrint jasperPrint = JasperFillManager.fillReport("InformePedido.jasper",hashMap,c);
+        JasperPrint jasperPrint = JasperFillManager.fillReport("InformePedido.jasper", hashMap, c);
 
-      JasperViewer.viewReport(jasperPrint,false);
+        JasperViewer.viewReport(jasperPrint, false);
 
         JRPdfExporter exp = new JRPdfExporter();
         exp.setExporterInput(new SimpleExporterInput(jasperPrint));
